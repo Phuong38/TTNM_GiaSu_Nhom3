@@ -1,0 +1,32 @@
+head
+  link(rel='stylesheet' href='css/linearicons.css')
+  link(rel='stylesheet' href='css/font-awesome.min.css')
+  link(rel='stylesheet' href='css/bootstrap.css')
+  link(rel='stylesheet' href='css/magnific-popup.css')
+  link(rel='stylesheet' href='css/nice-select.css')
+  link(rel='stylesheet' href='css/animate.min.css')
+  link(rel='stylesheet' href='css/owl.carousel.css')
+  link(rel='stylesheet' href='css/jquery-ui.css')
+  link(rel='stylesheet' href='css/main.css')
+  link(rel='stylesheet' href='css/login1.css')
+  // <link href="css/all.css" rel="stylesheet" />
+  link(href='css/bootstrap-grid.css' rel='stylesheet')
+.container
+  h1.form-heading
+  if error
+    .alert.alert-danger= error
+  .login-form
+    .main-div
+      .panel
+        h2 &Dstrok;&abreve;ng nh&#x1EAD;p v&agrave;o t&agrave;i kho&#x1EA3;n
+        p
+      form#Login(name='frmlogin' action='/login' method='POST')
+        .form-group
+          input#inputEmail.form-control(type='email' name ='email' placeholder='Nhập email' value=values ? values.email : "")
+        .form-group
+          input#inputPassword.form-control(type='password' name= 'password' placeholder='Nhập mật khẩu' value=values ? values.password : "")
+        .forgot
+          a(href='reset.html') Qu&ecirc;n m&#x1EAD;t kh&#x1EA9;u
+        button.btn.btn-primary(type='submit') &Dstrok;&abreve;ng nh&#x1EAD;p
+        p.botto-text B&#x1EA1;n l&agrave; th&agrave;nh vi&ecirc;n m&#x1EDB;i.
+        a(href='/dang-ky-lam-gia-su') &Dstrok;&abreve;ng k&yacute; l&agrave;m gia s&#x1B0;

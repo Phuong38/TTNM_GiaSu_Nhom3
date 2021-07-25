@@ -1,0 +1,348 @@
+doctype html
+head
+  // Mobile Specific Meta
+  meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
+  // Favicon
+  link(rel='shortcut icon' href='img/fav.png')
+  // Author Meta
+  meta(name='author' content='colorlib')
+  // Meta Description
+  meta(name='description' content='')
+  // Meta Keyword
+  meta(name='keywords' content='')
+  // meta character set
+  meta(charset='UTF-8')
+  // Site Title
+  title Đăng ký thuê gia sư
+  link(href='https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700' rel='stylesheet')
+  //
+    CSS
+    =============================================
+  link(rel='stylesheet' href='css/linearicons.css')
+  link(rel='stylesheet' href='css/font-awesome.min.css')
+  link(rel='stylesheet' href='css/bootstrap.css')
+  link(rel='stylesheet' href='css/magnific-popup.css')
+  link(rel='stylesheet' href='css/nice-select.css')
+  link(rel='stylesheet' href='css/animate.min.css')
+  link(rel='stylesheet' href='css/owl.carousel.css')
+  link(rel='stylesheet' href='css/jquery-ui.css')
+  link(rel='stylesheet' href='css/main.css')
+  link(href='css/main1.css' rel='stylesheet' type='text/css')
+  script(language='javascript' src='js/checkvalidate1.js')
+
+header#header
+  .header-top
+    .container
+      .row
+        .col-lg-4.col-sm-4.col-4.header-top-left.no-padding
+          ul
+            li
+              a(href='#')
+                i.fa.fa-facebook
+            li
+              a(href='#')
+                i.fa.fa-twitter
+            li
+              a(href='#')
+                i.fa.fa-dribbble
+            li
+              a(href='#')
+                i.fa.fa-behance
+        .col-lg-4.col-sm-4.col-4.header-top-center.no-padding
+          a(href='/gia-su')
+            button.btn.btn-light.btn-sm.text-uppercase(type='button') D&agrave;nh cho gia s&#x1B0;
+          a(href='/dangkythuegiasu')
+          span &nbsp;
+          span &nbsp;
+          span &nbsp;
+            button.btn.btn-primary.btn-sm.text-uppercase(type='button')  &Dstrok;&abreve;ng k&yacute; thu&ecirc; gia s&#x1B0;
+        .col-lg-4.col-sm-4.col-4.header-top-right.no-padding
+          a(href='tel:+953 012 3654 896')
+            span.lnr.lnr-phone-handset
+            span.text +84 0961100826
+          a(href='mailto:support@colorlib.com')
+            span.lnr.lnr-envelope
+            span.text bkdanang.tutor@gmail.com
+  .container.main-menu
+    .row.align-items-center.justify-content-between.d-flex
+      #logo
+        a(href='/')
+          img(src='img/logo1.png' alt='' title='')
+      nav#nav-menu-container
+        ul.nav-menu
+          li
+            a(href='/') Trang ch&#x1EE7;
+          li
+            a(href='/') Gi&#x1EDB;i thi&#x1EC7;u
+          li
+            a(href='/danhsachlopmoi') Danh s&aacute;ch c&aacute;c l&#x1EDB;p m&#x1EDB;i
+          
+          li
+            a(href='/blog-khach-hang') Blog kh&aacute;ch h&agrave;ng
+          li.menu-has-children
+            a(href='/blog-gia-su') Blog gia s&#x1B0;
+            
+          li
+            a(href='/contact') Li&ecirc;n h&#x1EC7;
+      // #nav-menu-container
+// #header
+// start banner Area
+section#home.banner-area.relative.about-banner
+  .overlay.overlay-bg
+  .container
+    .row.d-flex.align-items-center.justify-content-center
+      .about-content.col-lg-12
+        h1.text-white
+        p.text-white.link-nav
+          a(href='index.html')  
+          a(href='elements.html')  
+// End banner Area
+
+// Start Align Area
+.whole-wrap
+  .container
+    form.frmUser(name='frmDangKyThueGiaSu' action='/dangkythuegiasu' method='POST' autocomplete="off")
+      .row
+        h1.col-md-12.mytitle.text-center &Dstrok;&abreve;ng k&yacute; thu&ecirc; gia s&#x1B0;
+      .form-group.row
+        label.col-md-2.col-form-label.text-right(for='tenphuhuynh') H&#x1ECD; t&ecirc;n
+        .col-md-4
+          input#tenphuhuynh.form-control(type='text' name='tenphuhuynh' onkeyup='checkName(this.form)' required)
+          #viewValidName
+      .form-group.row
+        label.col-md-2.col-form-label.text-right(for='sdt') S&#x1ED1; &dstrok;i&#x1EC7;n tho&#x1EA1;i
+        .col-md-4
+          input#sdt.form-control(type='text' name='sdt' onkeyup='checkPhoneNumber(this.form)' required)
+          #viewValidPhone
+      .form-group.row
+        label.col-md-2.col-form-label.text-right(for='diachi') &Dstrok;&#x1ECB;a ch&#x1EC9;
+        .col-md-4
+          input#diachi.form-control(type='text' name='diachi' placeholder="Số nhà - Đường - Quận - Thành Phố " onkeyup='checkPlace(this.form)' required)
+          #viewValidPlace
+        label.col-md-2.col-form-label.text-right(for='diachiemail') Email
+        .col-md-4
+          input#email.form-control(type='text' name='diachiemail' onkeyup='checkEmail(this.form)' required)
+          #viewValidEmail
+      .form-group.row
+        label.col-md-2.col-form-label.text-right(for='lophoc') L&#x1EDB;p h&#x1ECD;c
+        .col-md-4
+          select#lophoc.form-control.selectpicker(name='lophoc' required)
+            option(value='0') ---
+            option(value='Lớp 1') L&#x1EDB;p 1
+            option(value='Lớp 2') L&#x1EDB;p 2
+            option(value='Lớp 3') L&#x1EDB;p 3
+            option(value='Lớp 4') L&#x1EDB;p 4
+            option(value='Lớp 5') L&#x1EDB;p 5
+            option(value='Lớp 6') L&#x1EDB;p 6
+            option(value='Lớp 7') L&#x1EDB;p 7
+            option(value='Lớp 8') L&#x1EDB;p 8
+            option(value='Lớp 9') L&#x1EDB;p 9
+            option(value='Lớp 10') L&#x1EDB;p 10
+            option(value='Lớp 11') L&#x1EDB;p 11
+            option(value='Lớp 12') L&#x1EDB;p 12
+          
+      .form-group.row
+        label.col-md-2.col-form-label.text-right(for='monhoc') M&ocirc;n h&#x1ECD;c
+        .col-md-4
+          select#monhoc.form-control.selectpicker(name='monhoc' required)
+            each monhoc in monhocs
+              option(value= monhoc.tenmonhoc)= monhoc.tenmonhoc
+            
+         
+      .form-group.row
+        label.col-md-2.col-form-label.text-right(for='sobuoi') S&#x1ED1; bu&#x1ED5;i\tu&#x1EA7;n
+        .col-md-4
+          select#sobuoi.form-control.selectpicker(name='selectpicker' required)
+            option(name='' value='0') ---
+            option(name='buoi1' value='1') 1
+            option(name='buoi2' value='2') 2 
+            option(name='buoi3' value='3') 3
+            option(name='buoi4' value='4') 4
+            option(name='buoi5' value='5') 5
+            option(name='buoi6' value='6') 6
+            option(name='buoi7' value='7') 7
+          
+      .form-group.row.align-items-center
+        label.col-md-2.col-form-label.text-right(for='thoigiancothehoc') Th&#x1EDD;i gian c&oacute; th&#x1EC3; h&#x1ECD;c
+        .col-md-10.ml
+          .row.ml
+            .col-md-4
+              label.form-check-label
+                input.form-check-input(type='checkbox' name='option[0]'  value='Thứ 2')
+                | Th&#x1EE9; 2
+                input(type='hidden' name='option[0]' value='Thứ 2')
+            .col-md-4
+              label.form-check-label
+                input.form-check-input(type='checkbox' name='option[1]' value='Thứ 3')
+                | Th&#x1EE9; 3
+                input(type='hidden' name='option[1]' value='Thứ 3')
+            .col-md-4
+              label.form-check-label
+                input.form-check-input(type='checkbox' name='option[2]' value='Thứ 4')
+                | Th&#x1EE9; 4
+                input(type='hidden' name='option[2]' value='Thứ 4')
+          .row.ml
+            .col-md-4
+              label.form-check-label
+                input.form-check-input(type='checkbox' name='option[3]' value='Thứ 5')
+                | Th&#x1EE9; 5
+                input(type='hidden' name='option[3]' value='Thứ 5')
+            .col-md-4
+              label.form-check-label
+                input.form-check-input(type='checkbox' name='option[4]' value='Thứ 6')
+                | Th&#x1EE9; 6
+                input(type='hidden' name='option[4]' value='Thứ 6')
+            .col-md-4
+              label.form-check-label
+                input.form-check-input(type='checkbox' name='option[5]' value='Thứ 7')
+                | Th&#x1EE9; 7
+                input(type='hidden' name='option[5]' value='Thứ 7')
+          .row.ml
+            .col-md-4
+              label.form-check-label
+                input.form-check-input(type='checkbox' value='Chủ nhật')
+                | Ch&#x1EE7; nh&#x1EAD;t
+      .form-group.row
+        label.col-md-2.col-form-label.text-right(for='buoicothehoc') Ca học:
+        .col-md-4
+          select#buoicothehoc.form-control.selectpicker(name='buoicothehoc' required)
+            option(value='Cả ngày') ---
+            option(value='Buổi sáng') Bu&#x1ED5;i s&aacute;ng
+            option(value='Buổi chiều') Bu&#x1ED5;i chi&#x1EC1;u 
+            option(value='Buổi tối') Bu&#x1ED5;i t&#x1ED1;i
+          
+      .form-group.row
+        label.col-md-2.col-form-label.text-right(for='yeucaugiasu') Y&ecirc;u c&#x1EA7;u v&#x1EC1; gia s&#x1B0;
+        .col-md-4
+          select#yeucauvegiasu.form-control.selectpicker(name='yeucaugiasu')
+            option(value='0') ---
+            option(value='Sinh Viên') Sinh vi&ecirc;n---200.000&dstrok;/h
+            option(value='Giáo Viên') Gi&aacute;o vi&ecirc;n---400.000&dstrok;/h
+      .form-group.row
+        label.col-md-2.col-form-label.text-right &Dstrok;&#x1EB7;c &dstrok;i&#x1EC3;m h&#x1ECD;c sinh
+      .form-group.row
+        label.col-md-2.col-form-label.text-right(for='gioitinh') Gi&#x1EDB;i t&iacute;nh
+        .col-md-4
+          select#yeucauvegiasu.form-control.selectpicker(name='gioitinh' required)
+            option(value='0') ---
+            option(value='Nam') Nam
+            option(value='Nữ') N&#x1EEF;
+      .form-group.row
+        label.col-md-2.col-form-label.text-right(for='hocluc') H&#x1ECD;c l&#x1EF1;c
+        .col-md-4
+          select#yeucauvegiasu.form-control.selectpicker(name='hocluc'  required)
+            option(value='0') ---
+            option(value='Tốt') T&#x1ED1;t
+            option(value='Trung Bình') Trung B&igrave;nh
+            option(value='Yếu') Y&#x1EBF;u
+            option(value='Kém') K&eacute;m
+    
+      .form-group.row.align-items-center
+        label.col-md-2.form-check-label.text-right(for='inputImage')
+          | Thông tin bổ sung
+        .col-md-10
+          textarea#txtDetail.form-control(name='ghichu' cols='60' rows='4')
+      .form-group.row
+        .col-md-2
+        .col-md-4
+          .form-check.ml
+            input#chkSave.form-check-input(type='checkbox' required)
+            label.form-check-label(for='chkSave')
+              | &Dstrok;&#x1ED3;ng &yacute; quy &dstrok;&#x1ECB;nh c&#x1EE7;a trung t&acirc;m
+      
+      .form-group.row
+        .col-md-12.text-center
+          button.btn.btn-primary(type='submit' )
+            i.fa.fa-registered
+            |  &Dstrok;&abreve;ng k&yacute;
+          span &nbsp;
+          span &nbsp;
+          span &nbsp;
+          a.button.btn.btn-primary( href= '/' type='button')
+            i.fa.fa-times
+            | Tho&aacute;t
+// End Align Area
+// start footer Area
+footer.footer-area.section-gap
+  .container
+    .row
+      .col-lg-4.col-md-6.col-sm-6
+        .single-footer-widget
+          h4 L&ecirc;n h&#x1EC7; v&#x1EDB;i ch&uacute;ng t&ocirc;i
+          ul
+            li
+              i.fa.fa-map-marker
+              span.text 54 Nguy&#7877;n L&#432;&#417;ng B&#7857;ng, Li&#234;n Chi&#7875;u, Đ&agrave; N&#7861;ng
+            li
+              i.fa.fa-phone
+              span.text +84 0961100826
+            li
+              i.fa.fa-envelope
+              span.text bkdanang.tutor@gmail.com
+      .col-lg-2.col-md-6.col-sm-6
+        .single-footer-widget
+          h4 V&#x1EC1; DNTutor
+          ul
+            li
+              a(href='/') Trang ch&#x1EE7;
+            li
+              a(href='/gioithieu') Gi&#x1EDB;i thi&#x1EC7;u
+            li
+              a(href='/danhsachlopmoi') Danh s&aacute;ch l&#x1EDB;p m&#x1EDB;i
+            li
+              a(href='/contact') Li&ecirc;n H&#x1EC7;
+      .col-lg-2.col-md-6.col-sm-6
+        .single-footer-widget
+          h4 Blog
+          ul
+            li
+              a(href='/blog-khach-hang') Blog kh&aacute;ch h&agrave;ng
+            li
+              a(href='/blog-gia-su') Blog gia s&#x1B0;
+      .col-lg-4.col-md-6.col-sm-6
+        .single-footer-widget
+          h4 Gmail
+          p &Dstrok;&#x1EC3; l&#x1EA1;i gmail &dstrok;&#x1EC3; c&oacute; th&#x1EC3; nh&#x1EAD;n nh&#x1EEF;ng &#x1B0;u &dstrok;&atilde;i m&#x1EDB;i nh&acirc;t
+          #mc_embed_signup
+            form(target='_blank' action='https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&id=92a4423d01' method='get')
+              .input-group
+                input.form-control(type='text' name='EMAIL' placeholder='Địa chỉ Email' onfocus="this.placeholder = ''" onblur="this.placeholder = 'Địa chỉ Email '" required='')
+                .input-group-btn
+                  button.btn.btn-default(type='submit')
+                    span.lnr.lnr-arrow-right
+                .info
+    .footer-bottom.row.align-items-center.justify-content-between
+      p.footer-text.m-0.col-lg-6.col-md-12
+        // Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0.
+        | B&#x1EA3;n quy&#x1EC1;n &copy;
+        script.
+          document.write(new Date().getFullYear());
+        |  c&#x1EE7;a S&#x1EA3;n ph&#x1EA9;m  
+        i.fa.fa-heart-o(aria-hidden='true')
+        | thu&#x1ED9;c v&#x1EC1; 
+        a(href='#' target='_blank') DNTutor
+        
+      .col-lg-6.col-sm-12.footer-social
+        a(href='#')
+          i.fa.fa-facebook
+        a(href='#')
+          i.fa.fa-twitter
+        a(href='#')
+          i.fa.fa-dribbble
+        a(href='#')
+          i.fa.fa-behance
+// End footer Area
+script(src='js/vendor/jquery-2.2.4.min.js')
+script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js' integrity='sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q' crossorigin='anonymous')
+script(src='js/vendor/bootstrap.min.js')
+script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA')
+script(src='js/easing.min.js')
+script(src='js/hoverIntent.js')
+script(src='js/superfish.min.js')
+script(src='js/jquery.ajaxchimp.min.js')
+script(src='js/jquery.magnific-popup.min.js')
+script(src='js/jquery.tabs.min.js')
+script(src='js/jquery.nice-select.min.js')
+script(src='js/owl.carousel.min.js')
+script(src='js/mail-script.js')
+script(src='js/main.js')

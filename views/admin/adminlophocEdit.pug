@@ -1,0 +1,136 @@
+doctype html
+head
+  title Education
+  link(rel='stylesheet' href='/css/font-awesome.min.css')
+  link(rel='stylesheet' href='/css/bootstrap.css')
+.row
+  .col-md-6.offset-md-3(style='background-color: #fff;margin-top: 25px;padding:20px;')
+    h3 Quản lý Lớp Học
+    form(action="/admin/lopmois/edit/"+lophoc._id , method='POST', autocomplete='off')
+      input(type='hidden', name='id', value= lophoc ? lophoc._id : '')
+
+      
+      .form-group
+        label Họ tên
+        input.form-control(type='text', name='tenphuhuynh', placeholder='', value= lophoc ? lophoc.tenphuhuynh : '' required)
+        .text-danger
+          |
+      .form-group
+        label SDT
+        input.form-control(type='text', name='sdt', placeholder='', value= lophoc ? lophoc.sdt : '' required)
+        .text-danger
+          | 
+      .form-row
+        .form-group.col-md-6
+          label Địa chi
+          input.form-control(type='text', name='diachi', placeholder='Số nhà - Đường - Quận - Thành Phố', value= lophoc ? lophoc.diachi : ''  required)
+        .form-group.col-md-6
+          label Email
+          input.form-control(type='text', name='diachiemail', placeholder='bkdanang.tutor@gmail.com', value= lophoc ? lophoc.diachiemail : '' required)
+
+      .form-row
+        .form-group.col-md-6
+          label Lớp Học
+          select.form-control.selectpicker(name='lophoc' value = '' id = 'lophoc' required)
+            option(value='0') ---
+            option(value='Lớp 1' selected = lophoc.lophoc.indexOf(1) !=-1) L&#x1EDB;p 1
+            option(value='Lớp 2' selected = lophoc.lophoc.indexOf(2) !=-1) L&#x1EDB;p 2
+            option(value='Lớp 3' selected = lophoc.lophoc.indexOf(3) !=-1) L&#x1EDB;p 3
+            option(value='Lớp 4' selected = lophoc.lophoc.indexOf(4) !=-1) L&#x1EDB;p 4
+            option(value='Lớp 5' selected = lophoc.lophoc.indexOf(5) !=-1) L&#x1EDB;p 5
+            option(value='Lớp 6' selected = lophoc.lophoc.indexOf(6) !=-1) L&#x1EDB;p 6
+            option(value='Lớp 7' selected = lophoc.lophoc.indexOf(7) !=-1) L&#x1EDB;p 7
+            option(value='Lớp 8' selected = lophoc.lophoc.indexOf(8) !=-1) L&#x1EDB;p 8
+            option(value='Lớp 9' selected = lophoc.lophoc.indexOf(9) !=-1) L&#x1EDB;p 9
+            option(value='Lớp 10' selected = lophoc.lophoc.indexOf(10) !=-1) L&#x1EDB;p 10
+            option(value='Lớp 11' selected = lophoc.lophoc.indexOf(11) !=-1) L&#x1EDB;p 11
+            option(value='Lớp 12' selected = lophoc.lophoc.indexOf(12) !=-1) L&#x1EDB;p 12
+        .form-group.col-md-6
+          label Môn Học
+          select.form-control.selectpicker(name='monhoc' id = 'monhoc' required)
+            option(value='0') ---
+            option(value='Toán' selected = lophoc.monhoc == 'Toán') To&aacute;n
+            option(value='Văn' selected = lophoc.monhoc == 'Văn') V&abreve;n 
+            option(value='Vật Lý' selected = lophoc.monhoc == 'Vật Lý') V&#x1EAD;t l&yacute;
+            option(value='Hóa Học' selected = lophoc.monhoc == ' Hóa Học') H&oacute;a h&#x1ECD;c
+            option(value='Tiếng Anh' selected = lophoc.monhoc == 'Tiếng Anh') Ti&#x1EBF;ng anh
+            option(value='Sinh Học' selected = lophoc.monhoc == 'Sinh Học') Sinh h&#x1ECD;c
+            option(value='Lịch Sử' selected = lophoc.monhoc == 'Lịch Sử') L&#x1ECB;ch s&#x1EED;
+            option(value='Địa Lý' selected = lophoc.monhoc == 'Địa Lý') &Dstrok;&#x1ECB;a L&yacute;
+            option(value='Các Môn Khác' selected = lophoc.monhoc == 'Các Môn Khác') C&aacute;c m&ocirc;n kh&aacute;c
+          
+
+      .form-row
+        .form-group.col-md-6
+          label Số buổi/tuần
+          select.form-control.selectpicker(name='selectpicker' id= 'sobuoi' required)
+            option(name='' value='0') ---
+            option(name='buoi1' value='1' selected = lophoc.sobuoi == 1) 1
+            option(name='buoi2' value='2' selected = lophoc.sobuoi == 2) 2 
+            option(name='buoi3' value='3' selected = lophoc.sobuoi == 3 ) 3
+            option(name='buoi4' value='4' selected = lophoc.sobuoi == 4) 4
+            option(name='buoi5' value='5' selected = lophoc.sobuoi == 5) 5
+            option(name='buoi6' value='6' selected = lophoc.sobuoi == 6) 6
+            option(name='buoi7' value='7' selected = lophoc.sobuoi == 7) 7   
+        .form-group.col-md-6
+          label Ca học
+          select.form-control.selectpicker(name='buoicothehoc' id= 'buoicothehoc' required)
+            option(value='Cả ngày' selected = lophoc.buoicothehoc == '') ---
+            option(value='Buổi sáng' selected = lophoc.buoicothehoc == 'Buổi sáng') Bu&#x1ED5;i s&aacute;ng
+            option(value='Buổi chiều' selected = lophoc.buoicothehoc == 'Buổi chiều') Bu&#x1ED5;i chi&#x1EC1;u 
+            option(value='Buổi tối' selected = lophoc.buoicothehoc == 'Buổi tối') Bu&#x1ED5;i t&#x1ED1;i
+      .form-group
+        label Thời gian có thể học
+        .col-md-10.ml
+          .row.ml
+            .col-md-4
+              label.form-check-label
+                input.form-check-input(type='checkbox' name='option[0]'  value='Thứ 2' id = 't2' checked= lophoc.thoigian.indexOf(2) !=-1)
+                | Th&#x1EE9; 2
+                input(type='hidden' name='option[0]' value='Thứ 2')
+            .col-md-4
+              label.form-check-label
+                input.form-check-input(type='checkbox' name='option[1]' value='Thứ 3' id = 't3' checked= lophoc.thoigian.indexOf(3) !=-1)
+                | Th&#x1EE9; 3
+                input(type='hidden' name='option[1]' value='Thứ 3')
+            .col-md-4
+              label.form-check-label
+                input.form-check-input(type='checkbox' name='option[2]' value='Thứ 4' id = 't4' checked= lophoc.thoigian.indexOf(4) !=-1)
+                | Th&#x1EE9; 4
+                input(type='hidden' name='option[2]' value='Thứ 4')
+          .row.ml
+            .col-md-4
+              label.form-check-label
+                input.form-check-input(type='checkbox' name='option[3]' value='Thứ 5' id = 't5' checked= lophoc.thoigian.indexOf(5) !=-1)
+                | Th&#x1EE9; 5
+                input(type='hidden' name='option[3]' value='Thứ 5')
+            .col-md-4
+              label.form-check-label
+                input.form-check-input(type='checkbox' name='option[4]' value='Thứ 6' id = 't6' checked= lophoc.thoigian.indexOf(6) !=-1)
+                | Th&#x1EE9; 6
+                input(type='hidden' name='option[4]' value='Thứ 6')
+            .col-md-4
+              label.form-check-label
+                input.form-check-input(type='checkbox' name='option[5]' value='Thứ 7' id = 't7' checked= lophoc.thoigian.indexOf(7) !=-1)
+                | Th&#x1EE9; 7
+                input(type='hidden' name='option[5]' value='Thứ 7')
+          .row.ml
+            .col-md-4
+              label.form-check-label
+                input.form-check-input(type='checkbox' value='Chủ nhật' id = 'cn' checked= lophoc.thoigian.indexOf("Chủ nhật") !=-1)
+                | Ch&#x1EE7; nh&#x1EAD;t
+      .form-group
+        label Gia Sư
+        input.form-control(type='text', name='giasu', placeholder='', value= lophoc ? lophoc.giasu : '' required)
+        .text-danger
+          |
+      .form-group.text-center
+        button.btn.btn-info(type='submit')
+          i.fa.fa-database
+          |  Submit
+        span &nbsp;
+        span &nbsp;
+        span &nbsp;
+        a.btn.btn-secondary(href='/admin/edit/'+ lophoc._id)
+          i.fa.fa-list-alt
+          |  View All

@@ -1,0 +1,52 @@
+doctype html
+head
+  title Education
+  link(rel='stylesheet' href='/css/font-awesome.min.css')
+  link(rel='stylesheet' href='/css/bootstrap.css')
+.row
+  .col-md-6.offset-md-3(style='background-color: #fff;margin-top: 25px;padding:20px;')
+    h3 Sửa Tài khoản
+    form(action='/admin/users/edit/'+ user._id, method='POST', autocomplete='off')
+      input(type='hidden', name='id', value= user ? user._id : '')
+
+      
+      .form-group
+        label Họ tên
+        input.form-control(type='text', name='name', placeholder='', value= user ? user.name : '' required)
+        .text-danger
+          |
+      .form-group
+        label Email
+        input.form-control(type='email', name='email', placeholder='', value= user ? user.email : '' required)
+        .text-danger
+          | 
+
+      .form-group
+        label Password
+        input.form-control(type='text', name='password', placeholder='', value= user ? user.password : '' required)
+        .text-danger
+          | 
+      
+
+      .form-row
+        
+            
+        .form-group.col-md-6
+          label Role
+          select.form-control.selectpicker(name='role'  required)
+            option(value='0' ) Gia Sư
+            option(value='1' ) Admin
+          
+          
+
+      
+      .form-group.text-center
+        button.btn.btn-info(type='submit')
+          i.fa.fa-database
+          |  Submit
+        span &nbsp;
+        span &nbsp;
+        span &nbsp;
+        a.btn.btn-secondary(href='/admin/users')
+          i.fa.fa-list-alt
+          |  View All

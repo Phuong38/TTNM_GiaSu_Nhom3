@@ -1,0 +1,109 @@
+﻿
+.mybg{
+	background: #f8f9fa !important;
+	margin: 10px 0;
+	border-radius: 25px;
+}
+.mybg2{
+	background: orange;
+}
+.myrow{
+	height: 100px;
+	border: 1px solid #55f;
+	
+}
+.myborder{
+	border: 1px solid #dee2e6 !important;
+	padding: 10px;
+}
+
+.mt-23{margin-top: 23px;}
+.mt-flex{margin-top: 100px;}
+.hdh1{
+	font-weight : 700;
+}
+
+.size200{
+	width: 100px;
+}
+.mytitle{
+	background: #555;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	color: #fff;
+	margin-bottom: 15px;
+}
+.row1{
+	padding-top:10px;
+	padding-bottom:10px;
+}
+.ml{
+	margin-left:0 !important;
+}
+.ml-5{
+	margin-left:5 !important;
+}
+.ml-10{
+	margin-left:10 !important;
+}
+.ml-15{
+	margin-left:15 !important;
+}
+.ml-20{
+	margin-left:20 !important;
+}
+.mr{
+	margin-right:0 !important;
+}
+.mr-10{
+	margin-right:10 !important;
+}
+.mr-15{
+	margin-right:15 !important;
+}
+.mr-20{
+	margin-right:20 !important;
+}
+.text1{
+	width: 40%;
+}
+.popular-courses-area .single-popular-carusel .details {
+	background: #f8f9fa !important;
+	margin: 10px 0;
+	border-radius: 25px;
+}
+.search-course-area .search-course-right .frm {
+	padding-top: 14px;
+}
+.search-course-area .search-course-right .frm2 {
+	padding-top: 10px;
+}
+/* Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
+	.frmlogin .form-group label, .frmProvider .form-group label, .frmInformation .form-group label, .frmTaiKhoan .form-group label{
+		text-align: left !important;
+	}
+}
+
+/* Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) and (max-width: 767.98px) {
+	.frmlogin .form-group label, .frmProvider .form-group label, .frmInformation .form-group label, .frmTaiKhoan .form-group label{
+		text-align: left !important;
+	}
+}
+
+/* Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) and (max-width: 991.98px) {
+	
+}
+
+/* Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) and (max-width: 1199.98px) {
+	
+}
+
+/* Extra large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px) {
+	
+}
+

@@ -1,0 +1,159 @@
+doctype html
+head
+  title Education
+  link(rel='stylesheet' href='/css/font-awesome.min.css')
+  link(rel='stylesheet' href='/css/bootstrap.css')
+.row
+  .col-md-6.offset-md-3(style='background-color: #fff;margin-top: 25px;padding:20px;')
+    h3 Đăng ký thuê gia sư
+    form(action='/admin/lopmois/add', method='POST', autocomplete='off')
+      input(type='hidden', name='id', value= lophoc ? lophoc._id : '')
+
+      
+      .form-group
+        label Họ tên
+        input.form-control(type='text', name='tenphuhuynh', placeholder='', value= lophoc ? lophoc.tenphuhuynh : '' required)
+        .text-danger
+          |
+      .form-group
+        label SDT
+        input.form-control(type='text', name='sdt', placeholder='', value= lophoc ? lophoc.sdt : '' required)
+        .text-danger
+          | 
+      .form-row
+        .form-group.col-md-6
+          label Địa chi
+          input.form-control(type='text', name='diachi', placeholder='Số nhà - Đường - Quận - Thành Phố', value= lophoc ? lophoc.diachi : ''  required)
+        .form-group.col-md-6
+          label Email
+          input.form-control(type='text', name='diachiemail', placeholder='bkdanang.tutor@gmail.com', value= lophoc ? lophoc.diachiemail : '' required)
+
+      .form-row
+        .form-group.col-md-6
+          label Lớp Học
+          select.form-control.selectpicker(name='lophoc' value = '' id = 'lophoc' required)
+            option(value='0') ---
+            option(value='Lớp 1' ) L&#x1EDB;p 1
+            option(value='Lớp 2' ) L&#x1EDB;p 2
+            option(value='Lớp 3' ) L&#x1EDB;p 3
+            option(value='Lớp 4' ) L&#x1EDB;p 4
+            option(value='Lớp 5') L&#x1EDB;p 5
+            option(value='Lớp 6' ) L&#x1EDB;p 6
+            option(value='Lớp 7' ) L&#x1EDB;p 7
+            option(value='Lớp 8' ) L&#x1EDB;p 8
+            option(value='Lớp 9' ) L&#x1EDB;p 9
+            option(value='Lớp 10') L&#x1EDB;p 10
+            option(value='Lớp 11' ) L&#x1EDB;p 11
+            option(value='Lớp 12' ) L&#x1EDB;p 12
+        .form-group.col-md-6
+          label Môn Học
+          select.form-control.selectpicker(name='monhoc' id = 'monhoc' required)
+            option(value='0') ---
+            option(value='Toán' ) To&aacute;n
+            option(value='Văn' ) V&abreve;n 
+            option(value='Vật Lý' ) V&#x1EAD;t l&yacute;
+            option(value='Hóa Học' ) H&oacute;a h&#x1ECD;c
+            option(value='Tiếng Anh' ) Ti&#x1EBF;ng anh
+            option(value='Sinh Học' ) Sinh h&#x1ECD;c
+            option(value='Lịch Sử' ) L&#x1ECB;ch s&#x1EED;
+            option(value='Địa Lý' ) &Dstrok;&#x1ECB;a L&yacute;
+            option(value='Các Môn Khác' ) C&aacute;c m&ocirc;n kh&aacute;c
+          
+
+      .form-row
+        .form-group.col-md-6
+          label Số buổi/tuần
+          select.form-control.selectpicker(name='selectpicker' id= 'sobuoi' required)
+            option(name='' value='0') ---
+            option(name='buoi1' value='1' ) 1
+            option(name='buoi2' value='2' ) 2 
+            option(name='buoi3' value='3'  ) 3
+            option(name='buoi4' value='4' ) 4
+            option(name='buoi5' value='5' ) 5
+            option(name='buoi6' value='6' ) 6
+            option(name='buoi7' value='7') 7   
+        .form-group.col-md-6
+          label Ca học
+          select.form-control.selectpicker(name='buoicothehoc' id= 'buoicothehoc' required)
+            option(value='Cả ngày') ---
+            option(value='Buổi sáng' ) Bu&#x1ED5;i s&aacute;ng
+            option(value='Buổi chiều') Bu&#x1ED5;i chi&#x1EC1;u 
+            option(value='Buổi tối' ) Bu&#x1ED5;i t&#x1ED1;i
+      .form-group
+        label Thời gian có thể học
+        .col-md-10.ml
+          .row.ml
+            .col-md-4
+              label.form-check-label
+                input.form-check-input(type='checkbox' name='option[0]'  value='Thứ 2' id = 't2' )
+                | Th&#x1EE9; 2
+                input(type='hidden' name='option[0]' value='Thứ 2')
+            .col-md-4
+              label.form-check-label
+                input.form-check-input(type='checkbox' name='option[1]' value='Thứ 3' id = 't3' )
+                | Th&#x1EE9; 3
+                input(type='hidden' name='option[1]' value='Thứ 3')
+            .col-md-4
+              label.form-check-label
+                input.form-check-input(type='checkbox' name='option[2]' value='Thứ 4' id = 't4' )
+                | Th&#x1EE9; 4
+                input(type='hidden' name='option[2]' value='Thứ 4')
+          .row.ml
+            .col-md-4
+              label.form-check-label
+                input.form-check-input(type='checkbox' name='option[3]' value='Thứ 5' id = 't5' )
+                | Th&#x1EE9; 5
+                input(type='hidden' name='option[3]' value='Thứ 5')
+            .col-md-4
+              label.form-check-label
+                input.form-check-input(type='checkbox' name='option[4]' value='Thứ 6' id = 't6' )
+                | Th&#x1EE9; 6
+                input(type='hidden' name='option[4]' value='Thứ 6')
+            .col-md-4
+              label.form-check-label
+                input.form-check-input(type='checkbox' name='option[5]' value='Thứ 7' id = 't7')
+                | Th&#x1EE9; 7
+                input(type='hidden' name='option[5]' value='Thứ 7')
+          .row.ml
+            .col-md-4
+              label.form-check-label
+                input.form-check-input(type='checkbox' value='Chủ nhật' id = 'cn' )
+                | Ch&#x1EE7; nh&#x1EAD;t
+      .form-row
+        .form-group.col-md-6
+          label Yêu cầu gia sư
+          select#yeucauvegiasu.form-control.selectpicker(name='yeucaugiasu')
+            option(value='0') ---
+            option(value='Sinh Viên' ) Sinh vi&ecirc;n---200.000&dstrok;/h
+            option(value='Giáo Viên' ) Gi&aacute;o vi&ecirc;n---400.000&dstrok;/h
+        .form-group.col-md-6
+          
+      label Đặc điểm học sinh
+      .form-row
+        .form-group.col-md-6
+          label Giới tính
+          select#yeucauvegiasu.form-control.selectpicker(name='gioitinh' required)
+            option(value='0') ---
+            option(value='Nam' ) Nam
+            option(value='Nữ' ) N&#x1EEF;
+        .form-group.col-md-6  
+          label Học lực
+          select#yeucauvegiasu.form-control.selectpicker(name='hocluc'  required)
+            option(value='0') ---
+            option(value='Tốt' ) T&#x1ED1;t
+            option(value='Trung Bình' ) Trung B&igrave;nh
+            option(value='Yếu' ) Y&#x1EBF;u
+            option(value='Kém' ) K&eacute;m
+      .form-group
+        label Thông tin bổ sung
+        textarea#txtDetail.form-control(name='ghichu' cols='60' rows='4')
+      .form-group.text-center
+        button.btn.btn-info(type='submit')
+          i.fa.fa-database
+          |  Submit
+        span &nbsp;
+        span &nbsp;
+        span &nbsp;
+        a.btn.btn-secondary(href='/admin/lopmois')
+          i.fa.fa-list-alt
+          |  View All

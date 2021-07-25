@@ -1,0 +1,28 @@
+doctype html
+head
+  title Education
+  link(rel='stylesheet' href='/css/font-awesome.min.css')
+  link(rel='stylesheet' href='/css/bootstrap.css')
+.row
+  .col-md-6.offset-md-3(style='background-color: #fff;margin-top: 25px;padding:20px;')
+    h3 Sửa môn học
+    form(action='/admin/monhocs/edit/' + monhoc._id, method='POST', autocomplete='off')
+      input(type='hidden', name='id', value= monhoc ? monhoc._id : '' )
+
+      
+      .form-group
+        label Tên Môn Học
+        input.form-control(type='text', name='tenmonhoc', placeholder='',  value = monhoc ? monhoc.tenmonhoc : '' required)
+        .text-danger
+          |
+      
+      .form-group.text-center
+        button.btn.btn-info(type='submit')
+          i.fa.fa-database
+          |  Submit
+        span &nbsp;
+        span &nbsp;
+        span &nbsp;
+        a.btn.btn-secondary(href='/admin/monhocs')
+          i.fa.fa-list-alt
+          |  View All

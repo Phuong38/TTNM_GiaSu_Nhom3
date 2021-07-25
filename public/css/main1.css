@@ -1,0 +1,82 @@
+﻿body{
+	font-size : 15px;
+}
+.mybg{
+	background: #f8f9fa !important;
+	margin: 15px 1;
+	
+}
+.mybg2{
+	background: orange;
+}
+.mybg3{
+	background: #f8f9fa !important;
+	margin: 15px 1;
+}
+.myrow{
+	height: 100px;
+	border: 1px solid #55f;
+	
+}
+.myborder{
+	border: 1px solid #dee2e6 !important;
+	padding: 10px;
+}
+
+.mt-23{margin-top: 23px;}
+.mt-flex{margin-top: 100px;}
+
+.size200{
+	width: 100px;
+}
+.canvaslogin{
+}
+.mytitle{
+	
+	padding-top: 50px;
+	padding-bottom:20px;
+	margin-bottom:15px;
+	font-size : 32px;
+}
+.row{
+	padding-top: 0.1px;
+	padding-bottom:0.1px;
+}
+.ml{margin-left:0px !important;}
+.ml5{margin-left:5px !important;}
+.m10{margin-left:10px !important;}
+.m15{margin-left:15px !important;}
+.m20{margin-left:20px !important;}
+
+
+.mr{margin-right:0px !important;}
+.mr10{margin-right:10px !important;}
+.mr15{margin-right:15px !important;}
+.mr20{margin-right:20px !important;}
+/* Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
+	.frmLogin .form-group label, .frmProvider .form-group label, .frm1 .form-group label, .frm2 .form-group label, .frmUser .form-group label{
+		text-align:left !important;}
+}
+
+/* Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) and (max-width: 767.98px) {
+	.frmMain .form-group label, .frmProvider .form-group label, .frm1 .form-group label, .frm2 .form-group label, .frmUser .form-group label{
+		text-align:left !important;}
+}
+
+/* Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) and (max-width: 991.98px) {
+	
+}
+
+/* Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) and (max-width: 1199.98px) {
+	
+}
+
+/* Extra large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px) {
+	
+}
+

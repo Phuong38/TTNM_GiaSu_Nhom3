@@ -1,0 +1,8 @@
+﻿.rs-btn-play {
+    background: white url(chrome-extension://amfojhdiedpdnlijjbhjnhokbnohfdfb/assetsReader/img/readicon.svg) center center no-repeat;
+    height: 24px;
+    width: 24px;
+    cursor: pointer;
+    outline-style: none;
+    border-radius: 3px;
+}

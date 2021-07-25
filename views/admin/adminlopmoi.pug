@@ -1,0 +1,252 @@
+doctype html
+head
+  // Required meta tags
+  meta(charset='UTF-8')
+  meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+  meta(name='description', content='au theme template')
+  meta(name='author', content='Hau Nguyen')
+  meta(name='keywords', content='au theme template')
+  // Title Page
+  title Lớp Mới
+  // Fontfaces CSS
+  link(href='/css/font-face.css', rel='stylesheet', media='all')
+  link(href='/vendor/font-awesome-4.7/css/font-awesome.min.css', rel='stylesheet', media='all')
+  link(href='/vendor/font-awesome-5/css/fontawesome-all.min.css', rel='stylesheet', media='all')
+  link(href='/vendor/mdi-font/css/material-design-iconic-font.min.css', rel='stylesheet', media='all')
+  // Bootstrap CSS
+  link(href='/vendor/bootstrap-4.1/bootstrap.min.css', rel='stylesheet', media='all')
+  // Vendor CSS
+  link(href='/vendor/animsition/animsition.min.css', rel='stylesheet', media='all')
+  link(href='/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css', rel='stylesheet', media='all')
+  link(href='/vendor/wow/animate.css', rel='stylesheet', media='all')
+  link(href='/vendor/css-hamburgers/hamburgers.min.css', rel='stylesheet', media='all')
+  link(href='/vendor/slick/slick.css', rel='stylesheet', media='all')
+  link(href='/vendor/select2/select2.min.css', rel='stylesheet', media='all')
+  link(href='/vendor/perfect-scrollbar/perfect-scrollbar.css', rel='stylesheet', media='all')
+  // Main CSS
+  link(href='/css/theme.css', rel='stylesheet', media='all')
+.page-wrapper
+  // HEADER MOBILE
+  header.header-mobile.d-block.d-lg-none
+    .header-mobile__bar
+      .container-fluid
+        .header-mobile-inner
+          a.logo(href='index.html')
+            img(src='images/icon/logo.png', alt='CoolAdmin')
+          button.hamburger.hamburger--slider(type='button')
+            span.hamburger-box
+              span.hamburger-inner
+    nav.navbar-mobile
+      .container-fluid
+        ul.navbar-mobile__list.list-unstyled
+          li.has-sub
+            a.js-arrow(href='#')
+              i.fas.fa-tachometer-alt
+              | Dashboard
+            ul.navbar-mobile-sub__list.list-unstyled.js-sub-list
+              li
+                a(href='index.html') Dashboard 1
+              li
+                a(href='index2.html') Dashboard 2
+              li
+                a(href='index3.html') Dashboard 3
+              li
+                a(href='index4.html') Dashboard 4
+          li
+            a(href='chart.html')
+              i.fas.fa-chart-bar
+              | Charts
+          li
+            a(href='table.html')
+              i.fas.fa-table
+              | Tables
+          li
+            a(href='form.html')
+              i.far.fa-check-square
+              | Forms
+          li
+            a(href='calendar.html')
+              i.fas.fa-calendar-alt
+              | Calendar
+          li
+            a(href='map.html')
+              i.fas.fa-map-marker-alt
+              | Maps
+          li.has-sub
+            a.js-arrow(href='#')
+              i.fas.fa-copy
+              | Pages
+            ul.navbar-mobile-sub__list.list-unstyled.js-sub-list
+              li
+                a(href='login.html') Login
+              li
+                a(href='register.html') Register
+              li
+                a(href='forget-pass.html') Forget Password
+          li.has-sub
+            a.js-arrow(href='#')
+              i.fas.fa-desktop
+              | UI Elements
+            ul.navbar-mobile-sub__list.list-unstyled.js-sub-list
+              li
+                a(href='button.html') Button
+              li
+                a(href='badge.html') Badges
+              li
+                a(href='tab.html') Tabs
+              li
+                a(href='card.html') Cards
+              li
+                a(href='alert.html') Alerts
+              li
+                a(href='progress-bar.html') Progress Bars
+              li
+                a(href='modal.html') Modals
+              li
+                a(href='switch.html') Switchs
+              li
+                a(href='grid.html') Grids
+              li
+                a(href='fontawesome.html') Fontawesome Icon
+              li
+                a(href='typo.html') Typography
+  // END HEADER MOBILE
+  // MENU SIDEBAR
+  aside.menu-sidebar.d-none.d-lg-block
+    .logo
+      a(href='#')
+        img(src='/img/logo2.png', alt='Admin')
+    .menu-sidebar__content.js-scrollbar1
+      nav.navbar-sidebar
+        ul.list-unstyled.navbar__list
+          
+          li.active
+            a(href='/admin/lopmois')
+              i.fas.fa-chart-bar
+              | Lớp Mới
+          li
+            a(href='/admin/lophocs')
+              i.fas.fa-table
+              | Lớp Học
+          li
+            a(href='/admin/giasus')
+              i.far.fa-check-square
+              | Gia Sư
+          li
+            a(href='/admin/users')
+              i.fas.fa-calendar-alt
+              | Tài Khoản
+          li
+            a(href='/admin/monhocs')
+              i.fas.fa-map-marker-alt
+              | Môn Học
+  // END MENU SIDEBAR
+  // PAGE CONTAINER
+  .page-container
+    // HEADER DESKTOP
+    header.header-desktop
+      .section__content.section__content--p30
+        .container-fluid
+          .header-wrap
+            form.form-header(action='', method='POST')
+            .header-button
+              .noti-wrap
+                .noti__item.js-item-menu
+                .noti__item.js-item-menu
+                .noti__item.js-item-menu
+              .account-wrap
+                .account-item.clearfix.js-item-menu
+                  .image
+                    img(src='/img/icon/avatar-01.jpg', alt='Admin')
+                  .content
+                    a.js-acc-btn(href='#') Admin
+                  .account-dropdown.js-dropdown
+                    .info.clearfix
+                      .image
+                        a(href='#')
+                          img(src='/img/icon/avatar-01.jpg', alt='Admin')
+                      .content
+                        h5.name
+                          a(href='#') Admin
+                        span.email bkdanang.tutor@gmail.com
+                    
+                    .account-dropdown__footer
+                      a(href='/logout')
+                        i.zmdi.zmdi-power
+                        | Logout
+    // END HEADER DESKTOP
+    // MAIN CONTENT
+    .main-content
+      .section__content.section__content--p30
+        .container-fluid
+          .row
+            .col-md-12
+              // DATA TABLE
+              h3.title-5.m-b-35 Quản lý lớp mới
+              .table-data__tool
+                .table-data__tool-left
+                
+                  a.button.au-btn.au-btn-icon.au-btn--green.au-btn--small(href='/admin/lopmois/add')
+                    i.zmdi.zmdi-plus
+                    | Thêm mới
+                  
+              .table-responsive.table-responsive-data2
+                table.table.table-data2
+                  thead
+                    tr
+                      th ID
+                      th Tên 
+                      th SDT
+                      th Email
+                      th Địa chỉ
+                      
+                      th Môn học
+                      th Thời gian
+                      th Ca học
+                      th Số buổi
+                      th Y/C Gia Sư
+                  tbody
+                  each lophoc in lophocs
+                    tr.tr-shadow
+                      td= lophoc._id
+                      td= lophoc.tenphuhuynh
+                      td= lophoc.sdt
+                        
+                      td.desc= lophoc.diachiemail
+                      td= lophoc.diachi
+                      
+                      td= lophoc.lophoc + ' -'+ lophoc.monhoc
+                      td= lophoc.buoicothehoc
+                      td= lophoc.thoigian
+                      td= lophoc.sobuoi
+                      td= lophoc.yeucaugiasu
+                      td
+                        .table-data-feature
+                          a.button.item(href='/admin/lopmois/edit/'+ lophoc._id ,data-toggle='tooltip', data-placement='top', title='Edit')
+                            i.zmdi.zmdi-edit
+                          a.button.item(href="/admin/lopmois/delete/+" + lophoc._id ,  onclick="return confirm('Are you sure to delete this record ?');" ,data-toggle='tooltip', data-placement='top', title='Delete')
+                            i.zmdi.zmdi-delete
+                          
+                    tr.spacer
+              // END DATA TABLE
+    // END MAIN CONTENT
+  // END PAGE CONTAINER
+// Jquery JS
+script(src='/vendor/jquery-3.2.1.min.js')
+// Bootstrap JS
+script(src='/vendor/bootstrap-4.1/popper.min.js')
+script(src='/vendor/bootstrap-4.1/bootstrap.min.js')
+// Vendor JS
+script(src='/vendor/slick/slick.min.js')
+script(src='/vendor/wow/wow.min.js')
+script(src='/vendor/animsition/animsition.min.js')
+script(src='/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js')
+script(src='/vendor/counter-up/jquery.waypoints.min.js')
+script(src='/vendor/counter-up/jquery.counterup.min.js')
+script(src='/vendor/circle-progress/circle-progress.min.js')
+script(src='/vendor/perfect-scrollbar/perfect-scrollbar.js')
+script(src='/vendor/chartjs/Chart.bundle.min.js')
+script(src='/vendor/select2/select2.min.js')
+// Main JS
+script(src='/js/mainAdmin.js')
+// end document

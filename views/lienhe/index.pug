@@ -1,0 +1,217 @@
+doctype html
+head
+  // Mobile Specific Meta
+  meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
+  // Favicon
+  link(rel='shortcut icon' href='img/fav.png')
+  // Author Meta
+  meta(name='author' content='colorlib')
+  // Meta Description
+  meta(name='description' content='')
+  // Meta Keyword
+  meta(name='keywords' content='')
+  // meta character set
+  meta(charset='UTF-8')
+  // Site Title
+  title Liên hệ
+  link(href='https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700' rel='stylesheet')
+  //
+    CSS
+    =============================================
+  link(rel='stylesheet' href='css/linearicons.css')
+  link(rel='stylesheet' href='css/font-awesome.min.css')
+  link(rel='stylesheet' href='css/bootstrap.css')
+  link(rel='stylesheet' href='css/magnific-popup.css')
+  link(rel='stylesheet' href='css/nice-select.css')
+  link(rel='stylesheet' href='css/animate.min.css')
+  link(rel='stylesheet' href='css/owl.carousel.css')
+  link(rel='stylesheet' href='css/jquery-ui.css')
+  link(rel='stylesheet' href='css/main.css')
+header#header
+  .header-top
+    .container
+      .row
+        .col-lg-4.col-sm-4.col-4.header-top-left.no-padding
+          ul
+            li
+              a(href='#')
+                i.fa.fa-facebook
+            li
+              a(href='#')
+                i.fa.fa-twitter
+            li
+              a(href='#')
+                i.fa.fa-dribbble
+            li
+              a(href='#')
+                i.fa.fa-behance
+        .col-lg-4.col-sm-4.col-4.header-top-center.no-padding
+          a(href='/')
+            button.btn.btn-light.btn-sm.text-uppercase(type='button') D&agrave;nh cho gia s&#x1B0;
+            span &nbsp;
+            span &nbsp;
+            span &nbsp;
+          a(href='/dangkuthuegiasu')
+            button.btn.btn-primary.btn-sm.text-uppercase(type='button')  &Dstrok;&abreve;ng k&yacute; thu&ecirc; gia s&#x1B0;
+        .col-lg-4.col-sm-4.col-4.header-top-right.no-padding
+          a(href='tel:+953 012 3654 896')
+            span.lnr.lnr-phone-handset
+            span.text +84 868329411
+          a(href='mailto:support@colorlib.com')
+            span.lnr.lnr-envelope
+            span.text ltphuong9@gmail.com
+  .container.main-menu
+    .row.align-items-center.justify-content-between.d-flex
+      #logo
+        a(href='/')
+          img(src='img/logo1.png' alt='' title='')
+      nav#nav-menu-container
+        ul.nav-menu
+          li
+            a(href='/') Trang ch&#x1EE7;
+          li
+            a(href='/gioithieu') Gi&#x1EDB;i thi&#x1EC7;u
+          li
+            a(href='/danhsachlopmoi') Danh s&aacute;ch c&aacute;c l&#x1EDB;p m&#x1EDB;i
+         
+          li
+            a(href='/blog-khach-hang') Blog kh&aacute;ch h&agrave;ng
+          li.menu-has-children
+            a(href='/blog-gia-su') Blog gia s&#x1B0;
+            
+          li
+            a(href='/contact') Li&ecirc;n h&#x1EC7;
+      // #nav-menu-container
+// #header
+// start banner Area
+section#home.banner-area.relative.about-banner
+  .overlay.overlay-bg
+  .container
+    .row.d-flex.align-items-center.justify-content-center
+      .about-content.col-lg-12
+        h1.text-white
+          
+// End banner Area
+// Start contact-page Area
+section.contact-page-area.section-gap
+  .container
+    .row
+      .mapdhcnhn(style='width:100%; height: 445px;')
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6401.358335397475!2d108.14907954127969!3d16.0731568173692!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x314218d68dff9545%3A0x714561e9f3a7292c!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBCw6FjaCBLaG9hIC0gxJDhuqFpIGjhu41jIMSQw6AgTuG6tW5n!5e0!3m2!1svi!2s!4v1627137971856!5m2!1svi!2s" width="100%" height="425px" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+      .col-lg-4.d-flex.flex-column.address-wrap
+        .single-contact-address.d-flex.flex-row
+          .icon
+            span.lnr.lnr-home
+          .contact-details
+            h5 Đ&agrave; N&#7861;ng, Vi&#x1EC7;t Nam
+            p
+              | 54 Nguy&#7877;n L&#432;&#417;ng B&#7857;ng, Li&#234;n Chi&#7875;u, Đ&agrave; N&#7861;ng
+        .single-contact-address.d-flex.flex-row
+          .icon
+            span.lnr.lnr-phone-handset
+          .contact-details
+            h5 (0868329411)
+            p Th&#x1EE9; 2 &dstrok;&#x1EBF;n 6, 9am to 6 pm
+        .single-contact-address.d-flex.flex-row
+          .icon
+            span.lnr.lnr-envelope
+          .contact-details
+            h5 ltphuong@gmail.com
+            p B&#x1EA1;n c&oacute; th&#x1EC3; g&#x1EED;i th&#x1B0; m&#x1ECD;i l&uacute;c!
+      .col-lg-8
+        form#myForm.form-area.contact-form.text-right(action='mail.php' method='post')
+          .row
+            .col-lg-6.form-group
+              input.common-input.mb-20.form-control(name='name' placeholder='Họ tên' onfocus="this.placeholder = ''" onblur="this.placeholder = 'Họ tên'" required='' type='text')
+              input.common-input.mb-20.form-control(name='email' placeholder='Địa chỉ email' pattern='[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$' onfocus="this.placeholder = ''" onblur="this.placeholder = 'Địa chỉ email'" required='' type='email')
+              input.common-input.mb-20.form-control(name='subject' placeholder='Nội dung' onfocus="this.placeholder = ''" onblur="this.placeholder = 'Nội dung'" required='' type='text')
+            .col-lg-6.form-group
+              textarea.common-textarea.form-control(name='message' placeholder='Messege' onfocus="this.placeholder = ''" onblur="this.placeholder = 'Messege'" required='')
+            .col-lg-12
+              .alert-msg(style='text-align: left;')
+              button.genric-btn.primary(style='float: right;') G&#x1EED;i th&#x1B0;
+// End contact-page Area
+// start footer Area
+footer.footer-area.section-gap
+  .container
+    .row
+      .col-lg-4.col-md-6.col-sm-6
+        .single-footer-widget
+          h4 L&ecirc;n h&#x1EC7; v&#x1EDB;i ch&uacute;ng t&ocirc;i
+          ul
+            li
+              i.fa.fa-map-marker
+              span.text  54 Nguy&#7877;n L&#432;&#417;ng B&#7857;ng, Li&#234;n Chi&#7875;u, Đ&agrave; N&#7861;ng
+            li
+              i.fa.fa-phone
+              span.text +84 0961100826
+            li
+              i.fa.fa-envelope
+              span.text ltphuong1003@gmail.com
+      .col-lg-2.col-md-6.col-sm-6
+        .single-footer-widget
+          h4 V&#x1EC1; DNTutor
+          ul
+            li
+              a(href='/') Trang ch&#x1EE7;
+            li
+              a(href='/gioithieu') Gi&#x1EDB;i thi&#x1EC7;u
+            li
+              a(href='/danhsachlopmoi') Danh s&aacute;ch l&#x1EDB;p m&#x1EDB;i
+            li
+              a(href='/contact') Li&ecirc;n H&#x1EC7;
+      .col-lg-2.col-md-6.col-sm-6
+        .single-footer-widget
+          h4 Blog
+          ul
+            li
+              a(href='/blog-khach-hang') Blog kh&aacute;ch h&agrave;ng
+            li
+              a(href='/blog-gia-su') Blog gia s&#x1B0;
+      .col-lg-4.col-md-6.col-sm-6
+        .single-footer-widget
+          h4 Gmail
+          p &Dstrok;&#x1EC3; l&#x1EA1;i gmail &dstrok;&#x1EC3; c&oacute; th&#x1EC3; nh&#x1EAD;n nh&#x1EEF;ng &#x1B0;u &dstrok;&atilde;i m&#x1EDB;i nh&acirc;t
+          #mc_embed_signup
+            form(target='_blank' action='https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&id=92a4423d01' method='get')
+              .input-group
+                input.form-control(type='text' name='EMAIL' placeholder='Địa chỉ Email' onfocus="this.placeholder = ''" onblur="this.placeholder = 'Địa chỉ Email '")
+                .input-group-btn
+                  button.btn.btn-default(type='submit')
+                    span.lnr.lnr-arrow-right
+                .info
+    .footer-bottom.row.align-items-center.justify-content-between
+      p.footer-text.m-0.col-lg-6.col-md-12
+        // Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0.
+        | B&#x1EA3;n quy&#x1EC1;n &copy;
+        script.
+          document.write(new Date().getFullYear());
+        |  c&#x1EE7;a S&#x1EA3;n ph&#x1EA9;m  
+        i.fa.fa-heart-o(aria-hidden='true')
+        | thu&#x1ED9;c v&#x1EC1; 
+        a(href='https://colorlib.com' target='_blank') DNTutor
+        // Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0.
+      .col-lg-6.col-sm-12.footer-social
+        a(href='#')
+          i.fa.fa-facebook
+        a(href='#')
+          i.fa.fa-twitter
+        a(href='#')
+          i.fa.fa-dribbble
+        a(href='#')
+          i.fa.fa-behance
+// End footer Area
+script(src='js/vendor/jquery-2.2.4.min.js')
+script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js' integrity='sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q' crossorigin='anonymous')
+script(src='js/vendor/bootstrap.min.js')
+script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA')
+script(src='js/easing.min.js')
+script(src='js/hoverIntent.js')
+script(src='js/superfish.min.js')
+script(src='js/jquery.ajaxchimp.min.js')
+script(src='js/jquery.magnific-popup.min.js')
+script(src='js/jquery.tabs.min.js')
+script(src='js/jquery.nice-select.min.js')
+script(src='js/owl.carousel.min.js')
+script(src='js/mail-script.js')
+script(src='js/main.js')
