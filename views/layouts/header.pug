@@ -1,0 +1,89 @@
+doctype html
+head
+  // Mobile Specific Meta
+  meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
+  // Favicon
+  link(rel='shortcut icon' href='img/fav.png')
+  // Author Meta
+  meta(name='author' content='colorlib')
+  // Meta Description
+  meta(name='description' content='')
+  // Meta Keyword
+  meta(name='keywords' content='')
+  // meta character set
+  meta(charset='UTF-8')
+  // Site Title
+  title DNTutor
+  link(href='https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700' rel='stylesheet')
+  //
+    CSS
+    =============================================
+  link(rel='stylesheet' href='css/linearicons.css')
+  link(rel='stylesheet' href='css/font-awesome.min.css')
+  link(rel='stylesheet' href='css/bootstrap.css')
+  link(rel='stylesheet' href='css/magnific-popup.css')
+  link(rel='stylesheet' href='css/nice-select.css')
+  link(rel='stylesheet' href='css/animate.min.css')
+  link(rel='stylesheet' href='css/owl.carousel.css')
+  link(rel='stylesheet' href='css/jquery-ui.css')
+  link(rel='stylesheet' href='css/main.css')
+  link(rel='stylesheet' href='css/style.css')
+  link(rel='stylesheet' href='css/main_register.css')
+  link(rel='stylesheet' href='css/login.css')
+  
+header#header
+  .header-top
+    .container
+      .row
+        .col-lg-4.col-sm-4.col-4.header-top-left.padding
+          
+          a(href='tel:+84 868329411')
+            span.lnr.lnr-phone-handset
+            span.text   +84 868329411
+           
+          a(href='mailto:bkdanang.tutor@gmail.com')
+            span.lnr.lnr-envelope
+            span.text   bkdanang.tutor@gmail.com
+        
+        .col-lg-4.col-sm-4.col-4.header-top-center.padding
+         
+
+        .col-lg-4.col-sm-4.col-4.header-top-right.no-padding
+            if user 
+              a(href='/cap-nhat-thong-tin')
+                span.fa.fa-user 
+                span.text #{user.email}
+              a(href='/logout')
+                button.btn.btn-primary.btn-sm.text-uppercase(type='button')  Đăng xuất
+            else
+              a(href='/login')
+                button.btn.btn-light.btn-sm.text-uppercase(type='button') Đăng nhập 
+                  //- span &nbsp; 
+                  //- span &nbsp;
+                  //- span &nbsp;    
+              a(href='/dang-ky-lam-gia-su')
+                button.btn.btn-primary.btn-sm.text-uppercase(type='button')  Đăng ký
+
+  .container.main-menu
+    .row.align-items-center.justify-content-between.d-flex
+      #logo
+        a(href='/')
+          img(src='img/logo1.png' alt='' title='')
+      nav#nav-menu-container
+        ul.nav-menu
+          li
+            a(href='/') Trang ch&#x1EE7;
+          li
+            a(href='/gioithieu') Gi&#x1EDB;i thi&#x1EC7;u
+          li
+            a(href='danhsachlopmoi') Danh s&aacute;ch c&aacute;c l&#x1EDB;p m&#x1EDB;i
+          
+          li
+            a(href='/blog-khach-hang') Blog kh&aacute;ch h&agrave;ng
+          li.menu-has-children
+            a(href='/blog-gia-su') Blog gia s&#x1B0;
+            
+          li
+            a(href='/contact') Li&ecirc;n h&#x1EC7;
+      // #nav-menu-container
+// #header

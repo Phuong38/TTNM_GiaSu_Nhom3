@@ -19,7 +19,7 @@ head
   link(rel='stylesheet' href='css/main_register.css')
   link(rel='stylesheet' href='css/login.css')
   link(rel='stylesheet' href='css/nr-ext-select-icon.css')
-  link(rel='stylesheet' href='/css/style.min.css')
+  link(rel='stylesheet' href='css/style.min.css')
   
   style(type='text/css').
     .fb_hidden{position:absolute;top:-10000px;z-index:10001}.fb_reposition{overflow:hidden;position:relative}.fb_invisible{display:none}.fb_reset{background:none;border:0;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:"lucida grande", tahoma, verdana, arial, sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}.fb_reset>div{overflow:hidden}@keyframes fb_transform{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}.fb_animate{animation:fb_transform .3s forwards}
@@ -30,23 +30,20 @@ header#header
     .container
       .row
         .col-lg-3.col-sm-4.col-3.header-top-left.no-padding
-          ul
-            li
-              a(href='#')
-                i.fa.fa-facebook
-            li
-              a(href='#')
-                i.fa.fa-twitter
-            li
-              a(href='#')
-                i.fa.fa-dribbble
-            li
-              a(href='#')
-                i.fa.fa-behance
+          a(href='tel:+84 868329411')
+            span.lnr.lnr-phone-handset
+            span.text +84868329411
+          a(href='mailto:bkdanang.tutor@gmail.com')
+            span.lnr.lnr-envelope
+            span.text bkdanang.tutor@gmail.com
         .col-lg-5.col-sm-4.col-5.header-top-right.no-padding
-          if user
+            
+            
+        .col-lg-4.col-sm-4.col-4.header-top-right.no-padding
+          if user 
             a(href='/cap-nhat-thong-tin')
-              button.btn.btn-light.btn-sm.text-uppercase(type='button') Cập nhật thông tin
+              span.fa.fa-user 
+              span.text #{user.email}
             a(href='/logout')
               button.btn.btn-primary.btn-sm.text-uppercase(type='button')  Đăng xuất
           else
@@ -54,17 +51,6 @@ header#header
               button.btn.btn-light.btn-sm.text-uppercase(type='button') &Dstrok;&abreve;ng k&yacute; l&agrave;m gia s&#x1B0;
             a(href='/login')
               button.btn.btn-primary.btn-sm.text-uppercase(type='button')  &Dstrok;&abreve;ng nh&#x1EAD;p v&agrave;o t&agrave;i kho&#x1EA3;n
-       
-        .col-lg-4.col-sm-4.col-4.header-top-right.no-padding
-          if user 
-            <i class="fa fa-user"></i>  #{user.email}
-          else
-            a(href='tel:+84 868329411')
-              span.lnr.lnr-phone-handset
-              span.text +84 868329411
-            a(href='mailto:bkdanang.tutor@gmail.com')
-              span.lnr.lnr-envelope
-              span.text bkdanang.tutor@gmail.com
   .row.m
     .container.main-menu
       .row.align-items-center.justify-content-between.d-flex
@@ -74,7 +60,7 @@ header#header
         nav#nav-menu-container
           ul.nav-menu
             li
-              a(href='/') Trang ch&#x1EE7;
+              a(href='/gia-su') Trang ch&#x1EE7;
             li
               a(href='/danhsachlopmoi') Danh s&aacute;ch c&aacute;c l&#x1EDB;p m&#x1EDB;i
             li
