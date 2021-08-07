@@ -37,34 +37,29 @@ header#header
     .container
       .row
         .col-lg-4.col-sm-4.col-4.header-top-left.no-padding
-          ul
-            li
-              a(href='#')
-                i.fa.fa-facebook
-            li
-              a(href='#')
-                i.fa.fa-twitter
-            li
-              a(href='#')
-                i.fa.fa-dribbble
-            li
-              a(href='#')
-                i.fa.fa-behance
-        .col-lg-4.col-sm-4.col-4.header-top-center.no-padding
-          a(href='/')
-            button.btn.btn-light.btn-sm.text-uppercase(type='button') D&agrave;nh cho gia s&#x1B0;
-            span &nbsp;
-            span &nbsp;
-            span &nbsp;
-          a(href='/dangkythuegiasu')
-            button.btn.btn-primary.btn-sm.text-uppercase(type='button')  &Dstrok;&abreve;ng k&yacute; thu&ecirc; gia s&#x1B0;
-        .col-lg-4.col-sm-4.col-4.header-top-right.no-padding
           a(href='tel:+84 868329411')
             span.lnr.lnr-phone-handset
             span.text +84 868329411
           a(href='mailto:bkdanang.tutor@gmail.com')
             span.lnr.lnr-envelope
             span.text bkdanang.tutor@gmail.com
+        .col-lg-4.col-sm-4.col-4.header-top-center.no-padding
+          
+        .col-lg-4.col-sm-4.col-4.header-top-right.no-padding
+          if user 
+              a(href='/cap-nhat-thong-tin')
+                span.fa.fa-user 
+                span.text #{user.email}
+              a(href='/logout')
+                button.btn.btn-primary.btn-sm.text-uppercase(type='button')  Đăng xuất
+          else
+              a(href='/login')
+                button.btn.btn-light.btn-sm.text-uppercase(type='button') Đăng nhập 
+                  //- span &nbsp; 
+                  //- span &nbsp;
+                  //- span &nbsp;    
+              a(href='/dang-ky-lam-gia-su')
+                button.btn.btn-primary.btn-sm.text-uppercase(type='button')  Đăng ký
   .row.m
     .container.main-menu
       .row.align-items-center.justify-content-between.d-flex
