@@ -73,8 +73,11 @@ section.event-details-area.section-gap
           span &nbsp;
           span &nbsp;
           = "Học lực: "+ lopmoi.hocluc
-        a(href='/dangkynhanlop/'+ lopmoi._id, onclick="return confirm('Bạn có chắc chắn nhận lớp này không');" ,data-toggle='tooltip', data-placement='top', title='Delete')
-          button.btn.btn-primary(type='button') &Dstrok;&abreve;ng k&yacute; nh&#x1EAD;n l&#x1EDB;p
+        if lopmoi.tinhtrang
+          a(href='/dangkynhanlop/'+ lopmoi._id, onclick="return confirm('Bạn có chắc chắn nhận lớp này không');" ,data-toggle='tooltip', data-placement='top', title='Delete')
+            button.btn.btn-primary(type='button') &Dstrok;&abreve;ng k&yacute; nh&#x1EAD;n l&#x1EDB;p
+        else
+          
       .col-lg-6.col-md-6.d-flex
         -var bien= lopmoi.diachi
         -var dc= "https://www.google.com/maps/embed/v1/place?key=AIzaSyBwrnBtViHL8Kw22f4EGRZQUadOqqRkaUU&q=+"+bien+"&zoom=15"

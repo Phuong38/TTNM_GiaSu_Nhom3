@@ -47,7 +47,9 @@ app.use(express.static(path.join(__dirname, "public")));
 
 // Routes
 app.get('/',  function(req, res) {
-  res.render('index');
+  res.render('index', {
+    user : res.locals.user
+  });
 });
 
 app.get('/gia-su', function(req, res) {
@@ -61,13 +63,12 @@ app.get('/gia-su', function(req, res) {
 //   });
 // });
 
-
 app.use('/dangkythuegiasu',dangkythuegiasuRouter);
-app.use('/danhsachlopmoi', danhsachlopmoiRouter);
-app.use('/contact',lienheRouter);
-app.use('/gioithieu',gioithieuRouter);
-app.use('/blog-gia-su',bloggiasuRouter);
-app.use('/blog-khach-hang', blogkhachhangRouter);
+app.use('/danhsachlopmoi',authMiddleware.User, danhsachlopmoiRouter);
+app.use('/contact',authMiddleware.User,lienheRouter);
+app.use('/gioithieu',authMiddleware.User,gioithieuRouter);
+app.use('/blog-gia-su',authMiddleware.User,bloggiasuRouter);
+app.use('/blog-khach-hang',authMiddleware.User, blogkhachhangRouter);
 app.use('/dang-ky-lam-gia-su',dangkytaikhoanRouter);
 app.use('/login', dangnhapRouter);
 app.use('/logout', dangxuatRouter);
