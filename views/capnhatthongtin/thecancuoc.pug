@@ -30,23 +30,19 @@ header#header
     .container
       .row
         .col-lg-3.col-sm-4.col-3.header-top-left.no-padding
-          ul
-            li
-              a(href='#')
-                i.fa.fa-facebook
-            li
-              a(href='#')
-                i.fa.fa-twitter
-            li
-              a(href='#')
-                i.fa.fa-dribbble
-            li
-              a(href='#')
-                i.fa.fa-behance
+          a(href='tel:+84 868329411')
+              span.lnr.lnr-phone-handset
+              span.text +84868329411
+          a(href='mailto:bkdanang.tutor@gmail.com')
+              span.lnr.lnr-envelope
+              span.text bkdanang.tutor@gmail.com
         .col-lg-5.col-sm-4.col-5.header-top-right.no-padding
-          if user
+          
+        .col-lg-4.col-sm-4.col-4.header-top-right.no-padding
+          if user 
             a(href='/cap-nhat-thong-tin')
-              button.btn.btn-light.btn-sm.text-uppercase(type='button') Cập nhật thông tin
+              span.fa.fa-user 
+              span.text #{user.email}
             a(href='/logout')
               button.btn.btn-primary.btn-sm.text-uppercase(type='button')  Đăng xuất
           else
@@ -54,17 +50,7 @@ header#header
               button.btn.btn-light.btn-sm.text-uppercase(type='button') &Dstrok;&abreve;ng k&yacute; l&agrave;m gia s&#x1B0;
             a(href='/login')
               button.btn.btn-primary.btn-sm.text-uppercase(type='button')  &Dstrok;&abreve;ng nh&#x1EAD;p v&agrave;o t&agrave;i kho&#x1EA3;n
-       
-        .col-lg-4.col-sm-4.col-4.header-top-right.no-padding
-          if user 
-            <i class="fa fa-user"></i>  #{user.email}
-          else
-            a(href='tel:+953 012 3654 896')
-              span.lnr.lnr-phone-handset
-              span.text +84 0961100826
-            a(href='mailto:support@colorlib.com')
-              span.lnr.lnr-envelope
-              span.text bkdanang.tutor@gmail.com
+
     .row.m
       .container.main-menu
         .row.align-items-center.justify-content-between.d-flex
@@ -74,17 +60,11 @@ header#header
           nav#nav-menu-container
             ul.nav-menu
               li
-                a(href='/') Trang ch&#x1EE7;
+                a(href='/gia-su') Trang ch&#x1EE7;
               li
                 a(href='/danhsachlopmoi') Danh s&aacute;ch c&aacute;c l&#x1EDB;p m&#x1EDB;i
-              li
-                a(href='/cach-thuc-nhan-lop') C&aacute;ch th&#x1EE9;c nh&#x1EAD;n l&#x1EDB;p
-              li
-                a(href='/chinh-sach-hoan-phi') Ch&iacute;nh s&aacute;ch ho&agrave;n ph&iacute;
-              li
-                a(href='/chinh-sach-hoc-thu') Ch&iacute;nh s&aacute;ch h&#x1ECD;c th&#x1EED;
               li.menu-has-children
-                a(href='') Blog gia s&#x1B0;
+                a(href='blog-gia-su') Blog gia s&#x1B0;
               li
                 a(href='/contact') Li&ecirc;n h&#x1EC7;
         // #nav-menu-container
@@ -211,7 +191,7 @@ footer.footer-area.section-gap
               span.text 54 Nguy&#7877;n L&#432;&#417;ng B&#7857;ng, Li&#234;n Chi&#7875;u, Đ&agrave; N&#7861;ng
             li
               i.fa.fa-phone
-              span.text +84 0961100826
+              span.text +84 868329411
             li
               i.fa.fa-envelope
               span.text bkdanang.tutor@gmail.com
