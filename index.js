@@ -57,6 +57,8 @@ app.get('/gia-su', function(req, res) {
     user : res.locals.user
   });
 });
+
+
 // app.get('/contact', function(req, res) {
 //   res.render('contact', {
 //     name: 'AAA'
