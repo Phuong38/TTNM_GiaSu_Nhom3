@@ -31,34 +31,26 @@ header#header
     .container
       .row
         .col-lg-4.col-sm-4.col-4.header-top-left.no-padding
-          ul
-            li
-              a(href='#')
-                i.fa.fa-facebook
-            li
-              a(href='#')
-                i.fa.fa-twitter
-            li
-              a(href='#')
-                i.fa.fa-dribbble
-            li
-              a(href='#')
-                i.fa.fa-behance
-        .col-lg-4.col-sm-4.col-4.header-top-center.no-padding
-          a(href='/gia-su')
-            button.btn.btn-light.btn-sm.text-uppercase(type='button') D&agrave;nh cho gia s&#x1B0;
-          span &nbsp;
-          span &nbsp;
-          span &nbsp;
-          a(href='/dangkythuegiasu')
-            button.btn.btn-primary.btn-sm.text-uppercase(type='button')  &Dstrok;&abreve;ng k&yacute; thu&ecirc; gia s&#x1B0;
-        .col-lg-4.col-sm-4.col-4.header-top-right.no-padding
           a(href='tel:+84 868329411')
             span.lnr.lnr-phone-handset
-            span.text +84 868329411
+            span.text   +84 868329411
           a(href='mailto:bkdanang.tutor@gmail.com')
             span.lnr.lnr-envelope
-            span.text bkdanang.tutor@gmail.com
+            span.text   bkdanang.tutor@gmail.com
+        .col-lg-4.col-sm-4.col-4.header-top-center.no-padding
+          
+        .col-lg-4.col-sm-4.col-4.header-top-right.no-padding
+          if user 
+              a(href='/cap-nhat-thong-tin')
+                span.fa.fa-user 
+                span.text #{user.email}
+              a(href='/logout')
+                button.btn.btn-primary.btn-sm.text-uppercase(type='button')  Đăng xuất
+          else
+              a(href='/login')
+                button.btn.btn-light.btn-sm.text-uppercase(type='button') Đăng nhập    
+              a(href='/dang-ky-lam-gia-su')
+                button.btn.btn-primary.btn-sm.text-uppercase(type='button')  Đăng ký
   .row.m
     .container.main-menu
       .row.align-items-center.justify-content-between.d-flex
@@ -68,11 +60,11 @@ header#header
         nav#nav-menu-container
           ul.nav-menu
             li
-              a(href='/') Trang ch&#x1EE7;
+              a(href='/') Trang chủ
             li
-              a(href='/gioithieu') Gi&#x1EDB;i thi&#x1EC7;u
+              a(href='/gioithieu') Giới thiệu
             li
-              a(href='/danhsachlopmoi') Danh s&aacute;ch c&aacute;c l&#x1EDB;p m&#x1EDB;i
+              a(href='/danhsachlopmoi') Danh sách các lớp moi
             
             li
               a(href='/blog-khach-hang') Blog kh&aacute;ch h&agrave;ng
@@ -87,61 +79,59 @@ header#header
     .row.text-center
       .col-sm-3
       .form-success.col-sm-6.col-sm-offset-3
-        br
-        br
-        h2(style='color:#0fad00') Th&agrave;nh C&ocirc;ng
-        img(src='/img/success.png' width='200' height='100px')
-        h3
-        p(style='font-size:20px;color:#5C5C5C;')
-          | C&#x1EA3;m &#x1A1;n b&#x1EA1;n &dstrok;&atilde; s&#x1EED; d&#x1EE5;ng d&#x1ECB;ch v&#x1EE5; c&#x1EE7;a trung t&acirc;m ch&uacute;ng t&ocirc;i. Vui l&ograve;ng &dstrok;&#x1EC3; &yacute; gmail c&#x1EE7;a b&#x1EA1;n. Ch&uacute;ng t&ocirc;i s&#x1EBD; g&#x1EED;i c&aacute;c th&ocirc;ng tin chi ti&#x1EBF;t v&#x1EC1; l&#x1EDB;p h&#x1ECD;c cho b&#x1EA1;n trong th&#x1EDD;i gian s&#x1EDB;m nh&#x1EA5;t
-        a.btn.btn-success(href='/gia-su')  &nbsp; &nbsp;Quay l&#x1EA1;i trang ch&#x1EE7; &nbsp; &nbsp; 
-        br
-        br
+
+            h2(style='color:#0fad00') Th&agrave;nh C&ocirc;ng
+            img(src='/img/success.png' width='200' height='200px')
+            h3
+            p(style='font-size:20px;color:#5C5C5C;')
+              | C&#x1EA3;m &#x1A1;n b&#x1EA1;n &dstrok;&atilde; s&#x1EED; d&#x1EE5;ng d&#x1ECB;ch v&#x1EE5; c&#x1EE7;a trung t&acirc;m ch&uacute;ng t&ocirc;i. Vui l&ograve;ng &dstrok;&#x1EC3; &yacute; gmail c&#x1EE7;a b&#x1EA1;n. Ch&uacute;ng t&ocirc;i s&#x1EBD; g&#x1EED;i c&aacute;c th&ocirc;ng tin chi ti&#x1EBF;t v&#x1EC1; l&#x1EDB;p h&#x1ECD;c cho b&#x1EA1;n trong th&#x1EDD;i gian s&#x1EDB;m nh&#x1EA5;t
+            a.btn.btn-success(href='/gia-su')  &nbsp; &nbsp;Quay l&#x1EA1;i trang ch&#x1EE7; &nbsp; &nbsp; 
+
 
 footer.footer-area.section-gap
   .container
     .row
       .col-lg-4.col-md-6.col-sm-6
         .single-footer-widget
-          h4 L&ecirc;n h&#x1EC7; v&#x1EDB;i ch&uacute;ng t&ocirc;i
+          h4 Liên hệ với chúng tôi
           ul
             li
               i.fa.fa-map-marker
-              span.text 54 Nguy&#7877;n L&#432;&#417;ng B&#7857;ng, Li&#234;n Chi&#7875;u, Đ&agrave; N&#7861;ng
+              span.text  54 Nguyễn Lương Bằng, Liên Chiểu, Đà Nẵng
             li
               i.fa.fa-phone
-              span.text +84 868329411
+              span.text  +84 868329411
             li
               i.fa.fa-envelope
-              span.text bkdanang.tutor@gmail.com
+              span.text  bkdanang.tutor@gmail.com
       .col-lg-2.col-md-6.col-sm-6
         .single-footer-widget
-          h4 V&#x1EC1; DNTutor
+          h4 Về DNTutor
           ul
             li
-              a(href='/gia-su') Trang ch&#x1EE7;
+              a(href='/') Trang chủ
             li
-              a(href='/gioithieu') Gi&#x1EDB;i thi&#x1EC7;u
+              a(href='/gioithieu') Giới thiệu
             li
-              a(href='/danhsachlopmoi') Danh s&aacute;ch l&#x1EDB;p m&#x1EDB;i
+              a(href='/danhsachlopmoi') Danh sách lớp mới
             li
-              a(href='/contact') Li&ecirc;n H&#x1EC7;
+              a(href='/contact') Liên hệ
       .col-lg-2.col-md-6.col-sm-6
         .single-footer-widget
           h4 Blog
           ul
             li
-              a(href='/blog-khach-hang') Blog kh&aacute;ch h&agrave;ng
+              a(href='/blog-khach-hang') Block khách hàng
             li
-              a(href='/blog-gia-su') Blog gia s&#x1B0;
+              a(href='/blog-gia-su') Blog gia sư
       .col-lg-4.col-md-6.col-sm-6
         .single-footer-widget
           h4 Gmail
-          p &Dstrok;&#x1EC3; l&#x1EA1;i gmail &dstrok;&#x1EC3; c&oacute; th&#x1EC3; nh&#x1EAD;n nh&#x1EEF;ng &#x1B0;u &dstrok;&atilde;i m&#x1EDB;i nh&acirc;t
+          p Để lại gmail để có thể nhận những ưu đãi mới nhât
           #mc_embed_signup
             form(target='_blank' action='https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&id=92a4423d01' method='get')
               .input-group
-                input.form-control(type='text' name='EMAIL' placeholder='Địa chỉ Email' onfocus="this.placeholder = ''" onblur="this.placeholder = 'Địa chỉ Email '")
+                input.form-control(type='text' name='EMAIL' placeholder='Địa chỉ Email' onfocus="this.placeholder = ''" onblur="this.placeholder = 'Địa chỉ Email '" required='')
                 .input-group-btn
                   button.btn.btn-default(type='submit')
                     span.lnr.lnr-arrow-right

@@ -17,19 +17,19 @@ section#home.banner-area.relative.about-banner
   .container
     form.frmUser(name='frmDangKyThueGiaSu' action='/dangkythuegiasu' method='POST' autocomplete="off")
       .row
-        h1.col-md-12.mytitle.text-center &Dstrok;&abreve;ng k&yacute; thu&ecirc; gia s&#x1B0;
+        h1.col-md-12.mytitle.text-center Đăng ký thuê gia sư
       .form-group.row
-        label.col-md-2.col-form-label.text-right(for='tenphuhuynh') H&#x1ECD; t&ecirc;n
+        label.col-md-2.col-form-label.text-right(for='tenphuhuynh') Họ tên
         .col-md-4
           input#tenphuhuynh.form-control(type='text' name='tenphuhuynh' onkeyup='checkName(this.form)' required)
           #viewValidName
       .form-group.row
-        label.col-md-2.col-form-label.text-right(for='sdt') S&#x1ED1; &dstrok;i&#x1EC7;n tho&#x1EA1;i
+        label.col-md-2.col-form-label.text-right(for='sdt') Số điện thoại
         .col-md-4
           input#sdt.form-control(type='text' name='sdt' onkeyup='checkPhoneNumber(this.form)' required)
           #viewValidPhone
       .form-group.row
-        label.col-md-2.col-form-label.text-right(for='diachi') &Dstrok;&#x1ECB;a ch&#x1EC9;
+        label.col-md-2.col-form-label.text-right(for='diachi') Địa chỉ
         .col-md-4
           input#diachi.form-control(type='text' name='diachi' placeholder="Số nhà - Đường - Quận - Thành Phố " onkeyup='checkPlace(this.form)' required)
           #viewValidPlace
@@ -38,25 +38,25 @@ section#home.banner-area.relative.about-banner
           input#email.form-control(type='text' name='diachiemail' onkeyup='checkEmail(this.form)' required)
           #viewValidEmail
       .form-group.row
-        label.col-md-2.col-form-label.text-right(for='lophoc') L&#x1EDB;p h&#x1ECD;c
+        label.col-md-2.col-form-label.text-right(for='lophoc') Lớp học
         .col-md-4
           select#lophoc.form-control.selectpicker(name='lophoc' required)
             option(value='0') ---
-            option(value='Lớp 1') L&#x1EDB;p 1
-            option(value='Lớp 2') L&#x1EDB;p 2
-            option(value='Lớp 3') L&#x1EDB;p 3
-            option(value='Lớp 4') L&#x1EDB;p 4
-            option(value='Lớp 5') L&#x1EDB;p 5
-            option(value='Lớp 6') L&#x1EDB;p 6
-            option(value='Lớp 7') L&#x1EDB;p 7
-            option(value='Lớp 8') L&#x1EDB;p 8
-            option(value='Lớp 9') L&#x1EDB;p 9
-            option(value='Lớp 10') L&#x1EDB;p 10
-            option(value='Lớp 11') L&#x1EDB;p 11
-            option(value='Lớp 12') L&#x1EDB;p 12
+            option(value='Lớp 1') Lớp 1
+            option(value='Lớp 2') Lớp 2
+            option(value='Lớp 3') Lớp 3
+            option(value='Lớp 4') Lớp 4
+            option(value='Lớp 5') Lớp 5
+            option(value='Lớp 6') Lớp 6
+            option(value='Lớp 7') Lớp 7
+            option(value='Lớp 8') Lớp 8
+            option(value='Lớp 9') Lớp 9
+            option(value='Lớp 10') Lớp 10
+            option(value='Lớp 11') Lớp 11
+            option(value='Lớp 12') Lớp 12
           
       .form-group.row
-        label.col-md-2.col-form-label.text-right(for='monhoc') M&ocirc;n h&#x1ECD;c
+        label.col-md-2.col-form-label.text-right(for='monhoc') Môn học
         .col-md-4
           select#monhoc.form-control.selectpicker(name='monhoc' required)
             option(value="0") --- 
@@ -65,7 +65,7 @@ section#home.banner-area.relative.about-banner
             
          
       .form-group.row
-        label.col-md-2.col-form-label.text-right(for='sobuoi') S&#x1ED1; bu&#x1ED5;i\tu&#x1EA7;n
+        label.col-md-2.col-form-label.text-right(for='sobuoi') Số buổi/tuần
         .col-md-4
           select#sobuoi.form-control.selectpicker(name='selectpicker' required)
             option(name='' value='0') ---
@@ -78,79 +78,79 @@ section#home.banner-area.relative.about-banner
             option(name='buoi7' value='7') 7
           
       .form-group.row.align-items-center
-        label.col-md-2.col-form-label.text-right(for='thoigiancothehoc') Th&#x1EDD;i gian c&oacute; th&#x1EC3; h&#x1ECD;c
+        label.col-md-2.col-form-label.text-right(for='thoigiancothehoc') Thời gian có thể học
         .col-md-10.ml
           .row.ml
             .col-md-4
               label.form-check-label
                 input.form-check-input(type='checkbox' name='option[0]'  value='Thứ 2')
-                | Th&#x1EE9; 2
+                | Thứ 2
                 input(type='hidden' name='option[0]' value='Thứ 2')
             .col-md-4
               label.form-check-label
                 input.form-check-input(type='checkbox' name='option[1]' value='Thứ 3')
-                | Th&#x1EE9; 3
+                | Thứ 3
                 input(type='hidden' name='option[1]' value='Thứ 3')
             .col-md-4
               label.form-check-label
                 input.form-check-input(type='checkbox' name='option[2]' value='Thứ 4')
-                | Th&#x1EE9; 4
+                | Thứ 4
                 input(type='hidden' name='option[2]' value='Thứ 4')
           .row.ml
             .col-md-4
               label.form-check-label
                 input.form-check-input(type='checkbox' name='option[3]' value='Thứ 5')
-                | Th&#x1EE9; 5
+                | Thứ 5
                 input(type='hidden' name='option[3]' value='Thứ 5')
             .col-md-4
               label.form-check-label
                 input.form-check-input(type='checkbox' name='option[4]' value='Thứ 6')
-                | Th&#x1EE9; 6
+                | Thứ 6
                 input(type='hidden' name='option[4]' value='Thứ 6')
             .col-md-4
               label.form-check-label
                 input.form-check-input(type='checkbox' name='option[5]' value='Thứ 7')
-                | Th&#x1EE9; 7
+                | Thứ 7
                 input(type='hidden' name='option[5]' value='Thứ 7')
           .row.ml
             .col-md-4
               label.form-check-label
                 input.form-check-input(type='checkbox' value='Chủ nhật')
-                | Ch&#x1EE7; nh&#x1EAD;t
+                | Chủ nhật
       .form-group.row
         label.col-md-2.col-form-label.text-right(for='buoicothehoc') Ca học:
         .col-md-4
           select#buoicothehoc.form-control.selectpicker(name='buoicothehoc' required)
             option(value='Cả ngày') ---
-            option(value='Buổi sáng') Bu&#x1ED5;i s&aacute;ng
-            option(value='Buổi chiều') Bu&#x1ED5;i chi&#x1EC1;u 
-            option(value='Buổi tối') Bu&#x1ED5;i t&#x1ED1;i
+            option(value='Buổi sáng') Buổi sáng
+            option(value='Buổi chiều') Buổi chiều 
+            option(value='Buổi tối') Buổi tối
           
       .form-group.row
-        label.col-md-2.col-form-label.text-right(for='yeucaugiasu') Y&ecirc;u c&#x1EA7;u v&#x1EC1; gia s&#x1B0;
+        label.col-md-2.col-form-label.text-right(for='yeucaugiasu') Yêu cầu về gia sư
         .col-md-4
           select#yeucauvegiasu.form-control.selectpicker(name='yeucaugiasu')
             option(value='0') ---
-            option(value='Sinh Viên') Sinh vi&ecirc;n---200.000&dstrok;/h
-            option(value='Giáo Viên') Gi&aacute;o vi&ecirc;n---400.000&dstrok;/h
+            option(value='Sinh Viên') Sinh viên--Giá bình quân 100.000 đồng/buổi
+            option(value='Giáo Viên') Giáo viên--Giá bình quân 250.000 đồng/buổi
       .form-group.row
-        label.col-md-2.col-form-label.text-right &Dstrok;&#x1EB7;c &dstrok;i&#x1EC3;m h&#x1ECD;c sinh
+        label.col-md-2.col-form-label.text-right Đặc điểm học sinh:
       .form-group.row
-        label.col-md-2.col-form-label.text-right(for='gioitinh') Gi&#x1EDB;i t&iacute;nh
+        label.col-md-2.col-form-label.text-right(for='gioitinh') Giới tính
         .col-md-4
           select#yeucauvegiasu.form-control.selectpicker(name='gioitinh' required)
             option(value='0') ---
             option(value='Nam') Nam
-            option(value='Nữ') N&#x1EEF;
+            option(value='Nữ') Nữ
       .form-group.row
-        label.col-md-2.col-form-label.text-right(for='hocluc') H&#x1ECD;c l&#x1EF1;c
+        label.col-md-2.col-form-label.text-right(for='hocluc') Học lực
         .col-md-4
           select#yeucauvegiasu.form-control.selectpicker(name='hocluc'  required)
             option(value='0') ---
-            option(value='Tốt') T&#x1ED1;t
-            option(value='Trung Bình') Trung B&igrave;nh
-            option(value='Yếu') Y&#x1EBF;u
-            option(value='Kém') K&eacute;m
+            option(value='Tốt') Tốt
+            option(value='Trung Bình') Trung Bình
+            option(value='Yếu') Yếu
+            option(value='Kém') Kém
     
       .form-group.row.align-items-center
         label.col-md-2.form-check-label.text-right(for='inputImage')
@@ -163,18 +163,18 @@ section#home.banner-area.relative.about-banner
           .form-check.ml
             input#chkSave.form-check-input(type='checkbox' required)
             label.form-check-label(for='chkSave')
-              | &Dstrok;&#x1ED3;ng &yacute; quy &dstrok;&#x1ECB;nh c&#x1EE7;a trung t&acirc;m
+              | Đồng ý quy định của trung tâm
       
       .form-group.row
         .col-md-12.text-center
           button.btn.btn-primary(type='submit' )
             i.fa.fa-registered
-            |  &Dstrok;&abreve;ng k&yacute;
+            |  Đăng ký
           span &nbsp;
           span &nbsp;
           span &nbsp;
           a.button.btn.btn-primary( href= '/' type='button')
             i.fa.fa-times
-            | Tho&aacute;t
+            | Thoát
 // End Align Area
 include ../layouts/footer.pug
