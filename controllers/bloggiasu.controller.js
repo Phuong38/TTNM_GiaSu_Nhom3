@@ -1,4 +1,3 @@
-module.exports.index = function(req, res) {
-    res.render('bloggiasu/index');
-  };
-  
+module.exports.index = async function(req, res) {
+  res.render('bloggiasu/index');
+};

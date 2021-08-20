@@ -5,7 +5,8 @@ var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 const path = require('path');
 var csurf = require('csurf');
-var mongoose = require('mongoose');
+const mongoose = require('mongoose');
+const User = mongoose.model('User');
 // const cookieParser = require('cookie-parser');
 
 //mongoose.connect(process.env.MONGO_URL);
@@ -47,15 +48,29 @@ app.use(express.static(path.join(__dirname, "public")));
 
 // Routes
 app.get('/',  function(req, res) {
-  res.render('index', {
-    user : res.locals.user
-  });
+  if (!req.signedCookies.userId) {
+    res.render('index');
+  } else{
+    var user = User.findOne({
+    _id: req.signedCookies.userId
+    }).exec();
+    res.render('index', {
+      user : user
+    });
+  }
 });
 
 app.get('/gia-su', function(req, res) {
-  res.render('indexgiasu',{
-    user : res.locals.user
-  });
+  if (!req.signedCookies.userId) {
+    res.render('indexgiasu');
+  } else{
+    var user = User.findOne({
+      _id: req.signedCookies.userId
+    }).exec();
+    res.render('indexgiasu',{
+      user : user
+    });
+  }
 });
 
 
@@ -70,6 +85,7 @@ app.use('/danhsachlopmoi',authMiddleware.User, danhsachlopmoiRouter);
 app.use('/contact',authMiddleware.User,lienheRouter);
 app.use('/gioithieu',authMiddleware.User,gioithieuRouter);
 app.use('/blog-gia-su',authMiddleware.User,bloggiasuRouter);
+// app.use('/blog-gia-su',bloggiasuRouter);
 app.use('/blog-khach-hang',authMiddleware.User, blogkhachhangRouter);
 app.use('/dang-ky-lam-gia-su',dangkytaikhoanRouter);
 app.use('/login', dangnhapRouter);
