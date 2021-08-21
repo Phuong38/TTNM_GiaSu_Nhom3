@@ -47,26 +47,30 @@ header#header
               button.btn.btn-primary.btn-sm.text-uppercase(type='button')  Đăng xuất
           else
             a(href='/dang-ky-lam-gia-su')
-              button.btn.btn-light.btn-sm.text-uppercase(type='button') &Dstrok;&abreve;ng k&yacute; l&agrave;m gia s&#x1B0;
+              button.btn.btn-light.btn-sm.text-uppercase(type='button') Đăng ký
             a(href='/login')
-              button.btn.btn-primary.btn-sm.text-uppercase(type='button')  &Dstrok;&abreve;ng nh&#x1EAD;p v&agrave;o t&agrave;i kho&#x1EA3;n
+              button.btn.btn-primary.btn-sm.text-uppercase(type='button')  Đăng nhập
 
     .row.m
       .container.main-menu
         .row.align-items-center.justify-content-between.d-flex
           #logo
-            a(href='/')
-              img(src='/img/logo1.png' alt='' title='')
+            if user 
+              a(href='/gia-su')
+                img(src='/img/logo1.png' alt='' title='')
+            else 
+              a(href='/') 
+                img(src='/img/logo1.png' alt='' title='')
           nav#nav-menu-container
             ul.nav-menu
               li
-                a(href='/gia-su') Trang ch&#x1EE7;
+                a(href='/gia-su') Trang chủ
               li
-                a(href='/danhsachlopmoi') Danh s&aacute;ch c&aacute;c l&#x1EDB;p m&#x1EDB;i
+                a(href='/danhsachlopmoi') Danh sách lớp mới
               li.menu-has-children
-                a(href='blog-gia-su') Blog gia s&#x1B0;
+                a(href='blog-gia-su') Blog gia sư
               li
-                a(href='/contact') Li&ecirc;n h&#x1EC7;
+                a(href='/contact') Liên hệ
         // #nav-menu-container
 // #header
 main(role='main')
@@ -109,74 +113,37 @@ main(role='main')
                   label.text-muted N&abreve;m
                   input.form-control(name='nam', type='number', min='1970', max='2018', value=thecancuoc ? year : '')
             .col-md-5.form-group.mt-4.mt-md-0
-              label.font-weight-bold H&#x1ED9; kh&#x1EA9;u th&#x1B0;&#x1EDD;ng tr&uacute;:
+              label.font-weight-bold Hộ khẩu thường trú:
               br
-              label.text-muted (Tr&ecirc;n th&#x1EBB; c&abreve;n c&#x1B0;&#x1EDB;c, CMT)
+              label.text-muted (Trên thẻ căn cước, CMT)
               input.form-control(type='text', name='hokhauthuongchu', value=thecancuoc ? thecancuoc.hokhauthuongchu : ' ')
-          //- h5.mt-4.pt-2.mb-3.text-primary X&aacute;c minh th&#x1EBB; c&abreve;n c&#x1B0;&#x1EDB;c:
-          //- #how_verify_choice
-          //-   div
-          //-     .form-check.form-check-radio.mr-0.mb-0
-          //-       span X&aacute;c minh khi nh&#x1EAD;n l&#x1EDB;p t&#x1EA1;i Trung T&acirc;m
-          //-       input(type='radio', name='how_verify', value='1', checked='')
-          //-       span.checkmark
-          //-   .mt-2
-          //-     .form-check.form-check-radio
-          //-       span X&aacute;c minh b&#x1EB1;ng c&aacute;ch upload &#x1EA3;nh
-          //-       input(type='radio', name='how_verify', value='2')
-          //-       span.checkmark
-          #upload_image_field.mt-4.none
-            p
-              | Upload &#x1EA3;nh ch&#x1EE5;p 2 m&#x1EB7;t th&#x1EBB; c&abreve;n c&#x1B0;&#x1EDB;c c&#x1EE7;a b&#x1EA1;n (ho&#x1EB7;c ch&#x1EE9;ng minh th&#x1B0;). &#x1EA2;nh s&#x1EBD; &dstrok;&#x1B0;&#x1EE3;c &#x1EA9;n ngay khi ch&uacute;ng t&ocirc;i x&aacute;c minh th&ocirc;ng tin.
-            .row.mt-4
-              .col-md-4
-                label.mb-2.font-weight-bold &#x1EA2;nh m&#x1EB7;t tr&#x1B0;&#x1EDB;c:
-                input#identify_front.upload_file.none(type='file')
-                #identify_front_notice.text-smaller.mb-3
-                  span.text-muted (Click v&agrave;o &#x1EA3;nh &dstrok;&#x1EC3; upload)
-                a#identify_front_btn.d-inline-block.image-preview(href="javascript:upload_image('identify_front')")
-                  #identify_front_preview
-                    img(src='')
-                  .backdrop
-                    .loader
-              .col-md-4.offset-md-1.mt-5.mt-md-0
-                label.mb-2.font-weight-bold &#x1EA2;nh m&#x1EB7;t sau:
-                input#identify_back.upload_file.none(type='file')
-                #identify_back_notice.text-smaller.mb-3
-                  span.text-muted (Click v&agrave;o &#x1EA3;nh &dstrok;&#x1EC3; upload)
-                a#identify_back_btn.d-inline-block.image-preview(href="javascript:upload_image('identify_back')")
-                  #identify_back_preview
-                    img(src='')
-                  .backdrop
-                    .loader
-          // End upload image field
           .mt-5.text-right
-            a.btn.btn-secondary.mr-4.btn-cancel(href='/cap-nhat-thong-tin') Quay l&#x1EA1;i
+            a.btn.btn-secondary.mr-4.btn-cancel(href='/cap-nhat-thong-tin') Quay lại
             input.btn.btn-primary(type='submit', value='Tiếp theo')
       .col-lg-3.order-lg-first.mt-5.mt-lg-0
         .mb-2.h5
-          a(href='/cap-nhat-thong-tin') H&#x1ED3; s&#x1A1; gia s&#x1B0;
+          a(href='/cap-nhat-thong-tin') Hồ sơ gia sư
         ul.sidebar-nav.list-unstyled
           li.nav-item
             a.nav-link(href='/cap-nhat-thong-tin')
               i.fa.fa-caret-right
-              |  Th&ocirc;ng tin c&#x1A1; b&#x1EA3;n 
+              |  Thông tin cá nhân
               i.fa.fa-exclamation-circle
           li.nav-item
             a.nav-link.active(href='/cap-nhat-thong-tin/the-can-cuoc')
               i.fa.fa-caret-right
-              |  Th&#x1EBB; c&abreve;n c&#x1B0;&#x1EDB;c 
+              |  Thẻ căn cước
               i.fa.fa-exclamation-circle
           li.nav-item
             a.nav-link(href='/cap-nhat-thong-tin/vi-tri-gia-su')
               i.fa.fa-caret-right
-              |  V&#x1ECB; tr&iacute; gia s&#x1B0; 
+              |  Vị trí gia sư
               i.fa.fa-exclamation-circle
           
         
         .mt-4.pt-2.h5
           a(href='/cap-nhat-thong-tin/lop-da-nhan')
-            span L&#x1EDB;p &dstrok;&atilde; nh&#x1EAD;n
+            span Lớp đã nhận
             span.text-muted.h6= '( ' + count +')'
         p.text-muted.mt-2.mb-0= 'Bạn đã nhận ' + count + ' lớp !'
 

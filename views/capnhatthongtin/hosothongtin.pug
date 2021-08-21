@@ -55,18 +55,22 @@ header#header
     .container.main-menu
       .row.align-items-center.justify-content-between.d-flex
         #logo
-          a(href='/')
-            img(src='img/logo1.png' alt='' title='')
+          if user 
+            a(href='/gia-su')
+              img(src='/img/logo1.png' alt='' title='')
+          else 
+            a(href='/') 
+              img(src='/img/logo1.png' alt='' title='')
         nav#nav-menu-container
           ul.nav-menu
             li
-              a(href='/gia-su') Trang ch&#x1EE7;
+              a(href='/gia-su') Trang chủ
             li
-              a(href='/danhsachlopmoi') Danh s&aacute;ch c&aacute;c l&#x1EDB;p m&#x1EDB;i
+              a(href='/danhsachlopmoi') Danh sách lớp mới
             li.menu-has-children
-              a(href='blog-gia-su') Blog gia s&#x1B0;
+              a(href='blog-gia-su') Blog gia sư
             li
-              a(href='/contact') Li&ecirc;n h&#x1EC7;
+              a(href='/contact') Liên hệ
               
 main(role='main')
   .container.alert-group
@@ -180,31 +184,7 @@ main(role='main')
                     .form_date-year
                       label.text-muted N&abreve;m
                       input.form-control(name='end_year'  min='1970' max='2018' value=giasu ?namkt[1]: '')
-          //- label.mb-2.font-weight-bold Vị trí gia sư:
-          //-   .mt-4
-          //-     #tutor_kind_choice.mt-2
-          //-       .form-check.form-check-radio
-          //-         span Sinh Vi&ecirc;n
-          //-         input(type='radio' name='tutor_kind' value='1' checked='checked')
-          //-         span.checkmark
-          //-       .form-check.form-check-radio
-          //-         span Gi&aacute;o Vi&ecirc;n
-          //-         input(type='radio' name='tutor_kind' value='2')
-          //-         span.checkmark
-              
-          //- // End Row
-          //- h5.mt-4.pt-2.mb-3.text-primary X&aacute;c minh h&#x1ECD;c v&#x1EA5;n:
-          //- #how_verify_choice
-          //-   div
-          //-     .form-check.form-check-radio.mr-0.mb-0
-          //-       span X&aacute;c minh khi nh&#x1EAD;n l&#x1EDB;p t&#x1EA1;i Trung T&acirc;m
-          //-       input(type='radio' name='how_verify' value='1' checked='')
-          //-       span.checkmark
-          //-   .mt-2
-          //-     .form-check.form-check-radio
-          //-       span X&aacute;c minh b&#x1EB1;ng c&aacute;ch upload &#x1EA3;nh
-          //-       input(type='radio' name='how_verify' value='2')
-          //-       span.checkmark
+          
           #upload_image_field.mt-4.none
             p Upload &#x1EA3;nh ch&#x1EE5;p Th&#x1EBB; sinh vi&ecirc;n ho&#x1EB7;c B&#x1EB1;ng t&#x1ED1;t nghi&#x1EC7;p c&#x1EE7;a b&#x1EA1;n.
             .row.mt-4
@@ -270,9 +250,6 @@ script.
     function myFunction() {
     var e = document.getElementById("mySelect");
   	e.value = #{time};
-   
-   
-    
     }
     window.onload = function()
     {

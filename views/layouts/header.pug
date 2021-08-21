@@ -29,7 +29,7 @@ head
   // <link href="css/all.css" rel="stylesheet" />
   link(rel='stylesheet', href='/css/bootstrap-grid.css' )
   script(language='javascript', src='/ckeditor/ckeditor.js')
-  script(language='javascript' src='js/checkvalidate2.js')
+  script(language='javascript', src='js/checkvalidate1.js')
 header#header 
   .header-top
     .container
@@ -58,8 +58,12 @@ header#header
   .container.main-menu
     .row.align-items-center.justify-content-between.d-flex
       #logo
-        a(href='/gia-su')
-          img(src='/img/logo1.png' alt='' title='')
+        if user 
+          a(href='/gia-su')
+            img(src='/img/logo1.png' alt='' title='')
+        else 
+          a(href='/') 
+            img(src='/img/logo1.png' alt='' title='')
       nav#nav-menu-container
         ul.nav-menu
           li
@@ -75,24 +79,6 @@ header#header
             a(href='/blog-khach-hang') Blog khách hàng
           li.menu-has-children
             a(href='/blog-gia-su') Blog gia sư
-            //
-              <ul>
-              <li><a href="blog-home.html">Blog Home</a></li>
-              <li><a href="blog-single.html">Blog Single</a></li>
-              </ul>
-          //
-            <li class="menu-has-children"><a href="">Pages</a>
-            <ul>
-            <li><a href="course-details.html">Course Details</a></li>
-            <li><a href="event-details.html">Event Details</a></li>
-            <li><a href="elements.html">Elements</a></li>
-            <li class="menu-has-children"><a href="">Level 2 </a>
-            <ul>
-            <li><a href="#">Item One</a></li>
-            <li><a href="#">Item Two</a></li>
-            </ul>
-            </li>
-            </ul>
           li
             a(href='/contact') Liên hệ
       // #nav-menu-container
