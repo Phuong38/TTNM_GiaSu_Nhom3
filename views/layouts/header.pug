@@ -47,31 +47,30 @@ header#header
           if user
               a(href='/cap-nhat-thong-tin')
                 span.fa.fa-user 
-                span.text  Hồ sơ
+                span.text  Trang cá nhân
               a(href='/logout')
                 button.btn.btn-primary.btn-sm.text-uppercase(type='button')  Đăng xuất
           else
               a(href='/login')
-                button.btn.btn-light.btn-sm.text-uppercase(type='button') Đăng nhập 
-                  //- span &nbsp; 
-                  //- span &nbsp;
-                  //- span &nbsp;    
+                button.btn.btn-light.btn-sm.text-uppercase(type='button') Đăng nhập  
               a(href='/dang-ky-lam-gia-su')
                 button.btn.btn-primary.btn-sm.text-uppercase(type='button')  Đăng ký
   .container.main-menu
     .row.align-items-center.justify-content-between.d-flex
       #logo
-        a(href='/')
+        a(href='/gia-su')
           img(src='/img/logo1.png' alt='' title='')
       nav#nav-menu-container
         ul.nav-menu
           li
-            a(href='/') Trang chủ
+            if user 
+              a(href='/gia-su') Trang chủ
+            else 
+              a(href='/') Trang chủ
           li
             a(href='/gioithieu') Giới thiệu
           li
             a(href='/danhsachlopmoi') Danh sách lớp mới
-          // <li><a href="events.html">Events</a></li>
           li
             a(href='/blog-khach-hang') Blog khách hàng
           li.menu-has-children
