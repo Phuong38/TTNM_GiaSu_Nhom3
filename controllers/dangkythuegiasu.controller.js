@@ -44,7 +44,6 @@ module.exports.create=  function(req, res){
             console.log(3);
             console.log(err);
               res.render('dangkythuegiasu/index', {
-                  
                   lopmoi: req.body
               });
           }

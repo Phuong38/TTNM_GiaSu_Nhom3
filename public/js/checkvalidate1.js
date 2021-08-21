@@ -1,6 +1,4 @@
-﻿/*Các xử lý kịch bản cho user.html*/
-//Kiểm tra tên phụ huynh
-function checkName(fn){
+﻿function checkName(fn){
 	var name = fn.tenphuhuynh.value;
 	var message= "";
 	var view= document.getElementById("viewValidName");
@@ -89,19 +87,30 @@ function checkPlace(fn){
 	}
 }
 function checkEmail(fn){
-	var name = fn.diachiemail.value;
+	var email = fn.diachiemail.value;
 	var message= "";
 	var view= document.getElementById("viewValidEmail");
-	if(name == ""){
-		message = "Yêu cầu nhập email để đăng ký thuê gia sư!";
-	}else{
-		if(name.length<6||name.length>50){
+	if(email == ""){
+		message = "Yêu cầu nhập email để đăng ký làm gia sư!";
+	}
+	else{
+		if(email.length<6||email.length>50){
 			message="Yêu cầu nhập đầy đủ email!";
 		
-		}else if(name.indexOf("@")!=-1){
+		}
+		else {
+			if(email.indexOf("@")!=-1){
+
 			var parttern=/\w+@+\w+[.]\w/;
-			if(!name.match(parttern)){
+			if(!email.match(parttern)){
 				
+				message="Không đúng cấu trúc !";
+			}
+			else{
+				message ="" ;
+			}
+			}
+			else{
 				message="Không đúng cấu trúc !";
 			}
 		}

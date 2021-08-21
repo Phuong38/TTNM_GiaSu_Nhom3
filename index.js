@@ -74,18 +74,12 @@ app.get('/gia-su', function(req, res) {
 });
 
 
-// app.get('/contact', function(req, res) {
-//   res.render('contact', {
-//     name: 'AAA'
-//   });
-// });
 
 app.use('/dangkythuegiasu',dangkythuegiasuRouter);
 app.use('/danhsachlopmoi',authMiddleware.User, danhsachlopmoiRouter);
 app.use('/contact',authMiddleware.User,lienheRouter);
 app.use('/gioithieu',authMiddleware.User,gioithieuRouter);
 app.use('/blog-gia-su',authMiddleware.User,bloggiasuRouter);
-// app.use('/blog-gia-su',bloggiasuRouter);
 app.use('/blog-khach-hang',authMiddleware.User, blogkhachhangRouter);
 app.use('/dang-ky-lam-gia-su',dangkytaikhoanRouter);
 app.use('/login', dangnhapRouter);

@@ -1,11 +1,14 @@
-﻿//check password
+﻿// function checkDangyeucau(fn){
+
+// }
 function checkName(fn){
 	var name = fn.name.value;
 	var message= "";
 	var view= document.getElementById("viewValidName");
 	if(name == ""){
 		message = "Yêu cầu nhập tên để đăng ký làm gia sư";
-	}else{
+	}
+	else{
 		if(name.length<6||name.length>50){
 			message="Tên cần  dài hơn 5 ký tự và nhỏ hơn 50 ký tự!";
 		
@@ -28,20 +31,32 @@ function checkName(fn){
 		return true;
 	}
 }
+
 function checkEmail(fn){
-	var name = fn.email.value;
+	var email = fn.emaill.value;
 	var message= "";
 	var view= document.getElementById("viewValidEmail");
-	if(name == ""){
+	if(email == ""){
 		message = "Yêu cầu nhập email để đăng ký làm gia sư!";
-	}else{
-		if(name.length<6||name.length>50){
+	}
+	else{
+		if(email.length<6||email.length>50){
 			message="Yêu cầu nhập đầy đủ email!";
 		
-		}else if(name.indexOf("@")!=-1){
+		}
+		else {
+			if(email.indexOf("@")!=-1){
+
 			var parttern=/\w+@+\w+[.]\w/;
-			if(!name.match(parttern)){
+			if(!email.match(parttern)){
 				
+				message="Không đúng cấu trúc !";
+			}
+			else{
+				message ="" ;
+			}
+			}
+			else{
 				message="Không đúng cấu trúc !";
 			}
 		}
@@ -55,6 +70,7 @@ function checkEmail(fn){
 		return true;
 	}
 }
+//check password
 function checkPass(fn){
 	var pass1=fn.password.value;
 	var pass2=fn.password1.value;
