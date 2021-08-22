@@ -89,21 +89,22 @@ section.section-gap
           | Đăng ký làm gia sư
         label.label-input100(for='hoten') HỌ VÀ TÊN:
         .wrap-input100.validate-input
-          input#email.input100(type='text' name='name' onkeyup='checkName(this.form)' placeholder='ví dụ: Phạm Trình Tin' required)
+          input#name.input100(type='text' name='name' onkeyup='checkName(this.form)' placeholder='ví dụ: Phạm Trình Tin' required)
           #viewValidName
           span.focus-input100
         label.label-input100(for='email') ĐỊA CHỈ EMAIL:
         .wrap-input100.validate-input
-          input#email.input100(type='email' name='emaill' onkeyup='checkEmail(this.form)' placeholder='ví dụ: example@email.com' required)
+          input#email.input100(type='email' name='email' onkeyup='checkEmail(this.form)' placeholder='ví dụ: example@email.com' required)
           #viewValidEmail
           span.focus-input100
         label.label-input100(for='password') MẬT KHẨU:
         .wrap-input100
-          input#phone.input100(type='password' name='password' onkeyup='checkPass(this.form)' required)
+          input#password.input100(type='password' name='password' onkeyup='checkPass(this.form)' required)
+          //- #viewValidPass
           span.focus-input100
         label.label-input100(for='password1') NHẬP LẠI MẬT KHẨU:
         .wrap-input100
-          input#phone.input100(type='password' name='password1' onkeyup='checkPass(this.form)' placeholder='' required)
+          input#password1.input100(type='password' name='password1' onkeyup='checkPass(this.form)' required)
           #viewValidPass
           span.focus-input100
         .container-contact100-form-btn
@@ -129,8 +130,3 @@ script(src='js/jquery.nice-select.min.js')
 script(src='js/owl.carousel.min.js')
 script(src='js/mail-script.js')
 script(src='js/main.js')
-
-//- script. 
-//-     function validateForm(fn){
-//-       var name = fn.value
-//-     }

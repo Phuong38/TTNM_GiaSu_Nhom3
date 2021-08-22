@@ -33,23 +33,21 @@ function checkName(fn){
 }
 
 function checkEmail(fn){
-	var email = fn.emaill.value;
+	var emailValue = fn.email.value;
 	var message= "";
 	var view= document.getElementById("viewValidEmail");
-	if(email == ""){
+	if(emailValue == ""){
 		message = "Yêu cầu nhập email để đăng ký làm gia sư!";
 	}
-	else{
-		if(email.length<6||email.length>50){
+	else {
+		if(emailValue.length<6||emailValue.length>50){
 			message="Yêu cầu nhập đầy đủ email!";
-		
 		}
 		else {
-			if(email.indexOf("@")!=-1){
+			if(emailValue.indexOf("@")!=-1){
 
 			var parttern=/\w+@+\w+[.]\w/;
-			if(!email.match(parttern)){
-				
+			if(!emailValue.match(parttern)){
 				message="Không đúng cấu trúc !";
 			}
 			else{
@@ -90,7 +88,6 @@ function checkPass(fn){
 				
 			}else{
 				view.innerHTML="<i class=\"fa fa-check\"></i>";
-				//view.style.color= document.getElementByTagName("body").style.color;
 				
 				isOK= true;
 			}

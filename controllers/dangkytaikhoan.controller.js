@@ -76,7 +76,6 @@ module.exports.create=  async function(req, res){
             console.log(3);
             console.log(err);
               res.render('dangky/index', {
-                  
                   lopmoi: req.body
               });
           }
