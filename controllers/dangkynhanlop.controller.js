@@ -33,8 +33,6 @@ module.exports.index = async function (req, res) {
     <ul>  
       <li>Trường học: ${gs.truonghoc}</li>
       <li>Ngành học: ${gs.nghanhhoc}</li>
-      <li>Thành tích nổi bật: ${vt.thanhtich}</li>
-      <li>Kinh nghiệm gia sư: ${vt.kinhnghiem}</li>
     </ul>
     <h3>Message</h3>
     <p>Gia sư sẽ liên hệ với bạn trong thời gian sớm nhất</p>
