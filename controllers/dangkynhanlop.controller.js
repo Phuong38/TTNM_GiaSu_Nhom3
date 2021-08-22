@@ -1,18 +1,12 @@
-const mongoose = require('mongoose');
 const { sendEmail } = require('../helpers/gmailnhaplop');
-const GiaSu = mongoose.model('GiaSu');
-const LopHoc = mongoose.model('LopHoc');
-const TheCanCuoc = mongoose.model('TheCanCuoc');
-const ViTriGiaSu = mongoose.model('ViTriGiaSu');
+const service = require('../service/dangkynhanlop.service');
 
 module.exports.index = async function (req, res) {
-  const id = req.params.id;
-  var lophoc = await LopHoc.findOne({ _id: id }).exec();
-  var gs = await GiaSu.findOne({ id_User: req.signedCookies.userId }).exec();
-  console.log("Giasu");
-  console.log(gs);
-  var cmt = await TheCanCuoc.findOne({ _id: gs.id_TheCanCuoc }).exec();
-  var vt = await ViTriGiaSu.findOne({ _id: gs.id_ViTri }).exec();
+//  let {lophoc, gs, cmt, vt} = await service.getThongTinGiaSu(req);
+  var lophoc = await service.getLopHoc(req.params.id);
+  var gs =  service.getGiaSu(req.signedCookies.userId);
+  var cmt = await service.getCMT(gs.id_TheCanCuoc);
+  var vt = await service.getVitri(gs.id_ViTri);
   var gioitinh = 'Nam';
   if (!gs.gioitinh) {
     gioitinh = 'Nữ';
@@ -33,8 +27,6 @@ module.exports.index = async function (req, res) {
     <ul>  
       <li>Trường học: ${gs.truonghoc}</li>
       <li>Ngành học: ${gs.nghanhhoc}</li>
-      <li>Thành tích nổi bật: ${vt.thanhtich}</li>
-      <li>Kinh nghiệm gia sư: ${vt.kinhnghiem}</li>
     </ul>
     <h3>Message</h3>
     <p>Gia sư sẽ liên hệ với bạn trong thời gian sớm nhất</p>
@@ -67,16 +59,16 @@ module.exports.index = async function (req, res) {
   `;
   await sendEmail(gs.email, output1);
   await sendEmail(lophoc.diachiemail, output);
-  await LopHoc.updateOne({ _id: id },
-    {
-      $set: {
-        tinhtrang: false,
-        giasu: req.signedCookies.userId
-      }
-    },
-    { new: true }).exec();
+  // await LopHoc.updateOne({ _id: id },
+  //   {
+  //     $set: {
+  //       tinhtrang: false,
+  //       giasu: req.signedCookies.userId
+  //     }
+  //   },
+  //   { new: true }).exec();
   
-
+  await service.update(req)
   res.render('dangkynhanlop/index');
 
 };

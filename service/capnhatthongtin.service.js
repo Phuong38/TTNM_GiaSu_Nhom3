@@ -16,16 +16,15 @@ module.exports.index = async function (req) {
     return count, giasu;
 }
 
-module.exports.lopdanhan = async function(userId) {
-    var lophocs = await LopHoc.find({ giasu: userId }).exec();
-    var count = await LopHoc.find({ giasu: userId }).count().exec();
-
+module.exports.lopdanhan = async function(req) {
+    var lophocs = await LopHoc.find({ giasu: req.signedCookies.userId }).exec();
+    var count = await LopHoc.find({ giasu: req.signedCookies.userId }).count().exec();
     return lophocs, count;
 }
 
 module.exports.thecancuoc = async function(userId) {
     var count = await LopHoc.find({ giasu: userId }).count().exec();
-    var giasu = await GiaSu.findOne({ id_User: userId }).exec();
+    var giasu =  GiaSu.findOne({ id_User: userId }).exec();
     if(giasu.id_TheCanCuoc){
         const tcc = await TheCanCuoc.findOne({_id: giasu.id_TheCanCuoc}).exec();
         console.log("HIHI");
@@ -38,7 +37,8 @@ module.exports.thecancuoc = async function(userId) {
 
 module.exports.vitrigiasu = async function(userId) {
     var count = await LopHoc.find({ giasu: userId }).count().exec();
-    var giasu = await GiaSu.findOne({ id_User: userId }).exec();
+    var giasu =  GiaSu.findOne({ id_User: userId }).exec();
+    console.log(giasu);
     const vt = await ViTriGiaSu.findOne({_id: giasu.id_ViTri}).exec();
     console.log("VT");
     console.log(vt);
@@ -52,7 +52,7 @@ module.exports.postthecancuoc = async function(req) {
     console.log(ngaycap);
     thecancuoc.ngaycap = ngaycap;
     thecancuoc.hokhauthuongchu = req.body.hokhauthuongchu;
-    var gs = await GiaSu.findOne({ id_User: req.signedCookies.userId }).exec();
+    var gs =  GiaSu.findOne({ id_User: req.signedCookies.userId }).exec();
     if (!gs.id_TheCanCuoc){
         await thecancuoc.save((err, doc) => {
             if (!err){
@@ -90,7 +90,7 @@ module.exports.postvitrigiasu = async function(req) {
     vitrigiasu.vitri = req.body.tutor_kind;
     vitrigiasu.thanhtich= req.body.achieved;
     vitrigiasu.kinhnghiem= req.body.experience;
-    var gs = await GiaSu.findOne({ id_User: req.signedCookies.userId }).exec();
+    var gs =  GiaSu.findOne({ id_User: req.signedCookies.userId }).exec();
     if (!gs.id_ViTri){
         await vitrigiasu.save((err, docs) => {
             if (!err) {

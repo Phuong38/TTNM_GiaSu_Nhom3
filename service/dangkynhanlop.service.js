@@ -4,16 +4,22 @@ const LopHoc = mongoose.model('LopHoc');
 const TheCanCuoc = mongoose.model('TheCanCuoc');
 const ViTriGiaSu = mongoose.model('ViTriGiaSu');
 
-module.exports.getThongTinGiaSu = async function (req) {
-    const id = req.params.id;
-    var lophoc = await LopHoc.findOne({ _id: id }).exec();
-    var gs = await GiaSu.findOne({ id_User: req.signedCookies.userId }).exec();
-    console.log("Giasu");
-    console.log(gs);
-    var cmt = await TheCanCuoc.findOne({ _id: gs.id_TheCanCuoc }).exec();
-    var vt = await ViTriGiaSu.findOne({ _id: gs.id_ViTri }).exec();
-    return lophoc, gs, cmt, vt;
+module.exports.getLopHoc = async function(id) {
+    return await LopHoc.findOne({ _id: id }).exec();
 }
+
+module.exports.getGiaSu = async function(userId) {
+  return await GiaSu.findOne({ id_User: userId }).exec();
+}
+
+module.exports.getVitri = async function(id_ViTri) {
+  return await ViTriGiaSu.findOne({ _id: id_ViTri }).exec();
+}
+
+module.exports.getCMT = async function(id_TheCanCuoc) {
+  return await TheCanCuoc.findOne({ _id: id_TheCanCuoc }).exec();
+}
+
 
 module.exports.update = async function(req) {
     await LopHoc.updateOne({ _id: req.params.id },

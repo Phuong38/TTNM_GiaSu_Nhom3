@@ -1,5 +1,4 @@
-const mongoose = require('mongoose');
-const User = mongoose.model('User');
+const service = require('../service/dangnhap.service');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const secretString = "lethanhphuong";
@@ -11,8 +10,7 @@ module.exports.check = async function (req, res, next) {
     let { email, password } = req.body;
     try {
 
-        let foundUser = await User.findOne({ email: email.trim() })
-            .exec();
+        let foundUser = await service.getUser(email.trim());
         console.log(2);
         if (!foundUser) {
             res.render('login/index', {

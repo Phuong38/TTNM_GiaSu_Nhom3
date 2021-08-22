@@ -13,32 +13,32 @@ const TheCanCuoc = mongoose.model('TheCanCuoc');
 const ViTriGiaSu = mongoose.model('ViTriGiaSu');
 
 // get quản lý lớp học
-module.exports.index = function() {
-    return LopHoc.find({ tinhtrang: false }).exec();
+module.exports.index = async function() {
+    return await LopHoc.find({ tinhtrang: false }).exec();
 }
 
 //get quản lý phiếu đăng ký thuê gia sư
-module.exports.indexLopMoi = function() {
-    return LopHoc.find({ tinhtrang: true }).exec();
+module.exports.indexLopMoi = async function() {
+    return await LopHoc.find({ tinhtrang: true }).exec();
 }
 
 //get quản lý gia sư
-module.exports.indexGiaSu = function() {
-    return GiaSu.find().exec();
+module.exports.indexGiaSu = async function() {
+    return await GiaSu.find().exec();
 }
 
 //get quản lý môn học
-module.exports.indexMonHoc = function() {
-    return MonHoc.find().exec();
+module.exports.indexMonHoc = async function() {
+    return await MonHoc.find().exec();
 }
 
 //get thêm phiếu đăng ký thuê gia sư
-module.exports.indexLopMoiCreate = function (){
-    return LopHoc.find().exec();
+module.exports.indexLopMoiCreate = async function (){
+    return await LopHoc.find().exec();
 }
 
 // post thêm phiếu đăng ký thuê gia sư và sửa phiếu đăng ký thuê gia sư
-module.exports.createLopMoi = function (req){
+module.exports.createLopMoi = async function (req){
     var lophoc = new LopHoc();
     lophoc.tenphuhuynh = req.body.tenphuhuynh;
     lophoc.sdt = req.body.sdt;
@@ -63,22 +63,14 @@ module.exports.createLopMoi = function (req){
     lophoc.hocluc = req.body.hocluc;
     console.log(lophoc);
 
-    lophoc.save((err, doc) => {
-        console.log('thêm lớp mới thành công');
-        if (!err) {
-            console.log(req.body.tenphuhuynh);
-            return err;
-        }
-        else {
-            console.log('không thể thêm lớp mới!');
-            return err;
-        }
+    await lophoc.save((err, doc) => {
+        return err;
     });
 }
 
 // get sửa phiếu đăng ký thuê gia sư
-module.exports.editLopMoi = function(id) {
-    return LopHoc.findOne({ _id: id }).exec();
+module.exports.editLopMoi = async function(id) {
+    return await LopHoc.findOne({ _id: id }).exec();
 }
 
 // post sửa phiếu đăng ký thuê gia sư
@@ -176,8 +168,8 @@ module.exports.GiaSuExportExcel = async function (req, res) {
 }
 
 // get quản lý tài khoản
-module.exports.indexUser = function() {
-    return User.find().exec();
+module.exports.indexUser = async function() {
+    return await User.find().exec();
 }
 
 // delete phiếu đăng ký lớp mới
@@ -189,8 +181,8 @@ module.exports.deleteLopMoi = function(id) {
 
 //user
 // get edit user
-module.exports.editUser = function(id) {
-    return User.findOne({ _id: id }).exec();
+module.exports.editUser = async function(id) {
+    return await User.findOne({ _id: id }).exec();
 }
 
 // post edit user
@@ -280,9 +272,9 @@ module.exports.deleteMonHoc = function(id) {
 }
 
 // post them mon hoc
-module.exports.postCreateMonHoc = async function(req) {
+module.exports.postCreateMonHoc = async function(tenmonhoc) {
     var monhoc = new MonHoc();
-    monhoc.tenmonhoc = req.body.tenmonhoc;
+    monhoc.tenmonhoc = tenmonhoc;
     await monhoc.save((err, doc) => {
         return err;
     });
