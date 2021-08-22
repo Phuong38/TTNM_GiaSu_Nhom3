@@ -47,7 +47,7 @@ module.exports.active =  async function(req, res){
   let {email, secretKey} = req.query;
   try {
 		await activateUser(email, secretKey)
-		res.redirect('/gia-su');
+		res.redirect('/login');
 	} catch(error) {
 		res.send(`<h1 style="color:Red;">Không kích hoạt được User, lỗi: ${error}</h1>`)
 	}
@@ -76,6 +76,7 @@ module.exports.create=  async function(req, res){
             console.log(3);
             console.log(err);
               res.render('dangky/index', {
+                  
                   lopmoi: req.body
               });
           }
