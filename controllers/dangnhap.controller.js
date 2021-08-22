@@ -1,8 +1,8 @@
-var service = require('../service/dangnhap.service');
+const mongoose = require('mongoose');
+const User = mongoose.model('User');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const secretString = "lethanhphuong";
-
 module.exports.index = function (req, res) {
     res.render('login/index');
 };
@@ -11,7 +11,8 @@ module.exports.check = async function (req, res, next) {
     let { email, password } = req.body;
     try {
 
-        let foundUser = await service.getUser(email);
+        let foundUser = await User.findOne({ email: email.trim() })
+            .exec();
         console.log(2);
         if (!foundUser) {
             res.render('login/index', {
