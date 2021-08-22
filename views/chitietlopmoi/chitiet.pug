@@ -1,4 +1,80 @@
-include ../layouts/header.pug
+doctype html
+head
+  // Mobile Specific Meta
+  meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
+  // Favicon
+  link(rel='shortcut icon' href='img/fav.png')
+  // Author Meta
+  meta(name='author' content='colorlib')
+  // Meta Description
+  meta(name='description' content='')   
+  // Meta Keyword
+  meta(name='keywords' content='')
+  // meta character set
+  meta(charset='UTF-8')
+  // Site Title
+  title DNTutor
+  
+  link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700')
+  link(rel='stylesheet', href='/css/linearicons.css')
+  link(rel='stylesheet', href='/css/font-awesome.min.css')
+  link(rel='stylesheet', href='/css/bootstrap.css')
+  link(rel='stylesheet', href='/css/magnific-popup.css')
+  link(rel='stylesheet', href='/css/nice-select.css')
+  link(rel='stylesheet', href='/css/animate.min.css')
+  link(rel='stylesheet', href='/css/owl.carousel.css')
+  link(rel='stylesheet', href='/css/jquery-ui.css')
+  link(rel='stylesheet', href='/css/main.css')
+  link(rel='stylesheet', href='/css/style.css')
+header#header 
+  .header-top
+    .container
+      .row
+        .col-lg-4.col-sm-4.col-4.header-top-left.no-padding
+          a(href='tel:+84 868329411')
+            span.lnr.lnr-phone-handset
+            span.text   +84 868329411
+          a(href='mailto:bkdanang.tutor@gmail.com')
+            span.lnr.lnr-envelope
+            span.text   bkdanang.tutor@gmail.com
+        .col-lg-4.col-sm-4.col-4.header-top-center.no-padding
+          
+        .col-lg-4.col-sm-4.col-4.header-top-right.no-padding
+          if user
+              a(href='/cap-nhat-thong-tin')
+                span.fa.fa-user 
+                span.text  Trang cá nhân
+              a(href='/logout')
+                button.btn.btn-primary.btn-sm.text-uppercase(type='button')  Đăng xuất
+          else
+              a(href='/login')
+                button.btn.btn-light.btn-sm.text-uppercase(type='button') Đăng nhập  
+              a(href='/dang-ky-lam-gia-su')
+                button.btn.btn-primary.btn-sm.text-uppercase(type='button')  Đăng ký
+  .container.main-menu
+    .row.align-items-center.justify-content-between.d-flex
+      #logo
+        a(href='/gia-su')
+          img(src='/img/logo1.png' alt='' title='')
+      nav#nav-menu-container
+        ul.nav-menu
+          li
+            if user 
+              a(href='/gia-su') Trang chủ
+            else 
+              a(href='/') Trang chủ
+          li
+            a(href='/gioithieu') Giới thiệu
+          li
+            a(href='/danhsachlopmoi') Danh sách lớp mới
+          li
+            a(href='/blog-khach-hang') Blog khách hàng
+          li.menu-has-children
+            a(href='/blog-gia-su') Blog gia sư
+          li
+            a(href='/contact') Liên hệ
+      // #nav-menu-container
+// #header
 // start banner Area
 section#home.banner-area.relative.about-banner
   .overlay.overlay-bg
@@ -20,7 +96,7 @@ section.event-details-area.section-gap
           else
             h3 Tình trạng: Đã được nhận
         br
-        p.p-icon.mb-2.font-weight-bold
+        p.mb-2.font-weight-bold
           i.fa.fa-book
           span &nbsp;
           span &nbsp;
@@ -82,19 +158,67 @@ section.event-details-area.section-gap
         iframe(frameborder='0' width='100%' height='100%' data-address=dc  data-district=dc data-province='Đà Nẵng' src=dc)
 
 // End event-details Area
-// Start cta-two Area
-//
-  <section class="cta-two-area">
-  <div class="container">
-  <div class="row">
-  <div class="col-lg-8 cta-left">
-  <h1>Not Yet Satisfied with our Trend?</h1>
-  </div>
-  <div class="col-lg-4 cta-right">
-  <a class="primary-btn wh" href="#">view our blog</a>
-  </div>
-  </div>
-  </div>
-  </section>
-// End cta-two Area
-include ../layouts/footer.pug
+footer.footer-area.section-gap
+  .container
+    .row
+      .col-lg-4.col-md-6.col-sm-6
+        .single-footer-widget
+          h4 Liên hệ với chúng tôi
+          ul
+            li
+              i.fa.fa-map-marker
+              span.text  54 Nguyễn Lương Bằng, Liên Chiểu, Đà Nẵng
+            li
+              i.fa.fa-phone
+              span.text  +84 868329411
+            li
+              i.fa.fa-envelope
+              span.text  bkdanang.tutor@gmail.com
+      .col-lg-2.col-md-6.col-sm-6
+        .single-footer-widget
+          h4 Về DNTutor
+          ul
+            li
+              a(href='/') Trang chủ
+            li
+              a(href='/gioithieu') Giới thiệu
+            li
+              a(href='/danhsachlopmoi') Danh sách lớp mới
+            li
+              a(href='/contact') Liên hệ
+      .col-lg-2.col-md-6.col-sm-6
+        .single-footer-widget
+          h4 Blog
+          ul
+            li
+              a(href='/blog-khach-hang') Blog khách hàng
+            li
+              a(href='/blog-gia-su') Blog gia sư
+      .col-lg-4.col-md-6.col-sm-6
+        .single-footer-widget
+          h4 Gmail
+          p Để lại gmail để có thể nhận những ưu đãi mới nhât
+          #mc_embed_signup
+            form(target='_blank' action='https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&id=92a4423d01' method='get')
+              .input-group
+                input.form-control(type='text' name='EMAIL' placeholder='Địa chỉ Email' onfocus="this.placeholder = ''" onblur="this.placeholder = 'Địa chỉ Email '" required='')
+                .input-group-btn
+                  button.btn.btn-default(type='submit')
+                    span.lnr.lnr-arrow-right
+                .info
+    
+
+script(src='../js/vendor/jquery-2.2.4.min.js')
+script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js' integrity='sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q' crossorigin='anonymous')
+script(src='../js/vendor/bootstrap.min.js')
+script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA')
+script(src='/js/easing.min.js')
+script(src='/js/hoverIntent.js')
+script(src='/js/superfish.min.js')
+script(src='/js/jquery.ajaxchimp.min.js')
+script(src='/js/jquery.magnific-popup.min.js')
+script(src='/js/jquery.tabs.min.js')
+script(src='/js/jquery.nice-select.min.js')
+script(src='/js/owl.carousel.min.js')
+script(src='/js/mail-script.js')
+script(src='/js/main.js')

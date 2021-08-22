@@ -72,6 +72,8 @@ app.get('/gia-su', function(req, res) {
     });
   }
 });
+
+
 // app.get('/contact', function(req, res) {
 //   res.render('contact', {
 //     name: 'AAA'
