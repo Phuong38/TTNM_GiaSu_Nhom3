@@ -17,7 +17,6 @@ module.exports.index = async function (req, res) {
     count: count
   });
 };
-
 module.exports.lopdanhan = async function (req, res) {
   var lophocs = await LopHoc.find({ giasu: req.signedCookies.userId }).exec();
   var count = await LopHoc.find({ giasu: req.signedCookies.userId }).count().exec();
