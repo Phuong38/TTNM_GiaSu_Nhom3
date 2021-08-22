@@ -36,7 +36,7 @@ module.exports.create=  function(req, res){
       console.log(1);
       if (!err){
         console.log(req.body.tenphuhuynh);
-          res.redirect('/');
+          res.redirect('/danhsachlopmoi/'+lophoc.id);
       }
       else {
         console.log(2);
@@ -44,7 +44,6 @@ module.exports.create=  function(req, res){
             console.log(3);
             console.log(err);
               res.render('dangkythuegiasu/index', {
-                  
                   lopmoi: req.body
               });
           }

@@ -22,9 +22,6 @@ const insertUser = async (name, email, password) => {
       //throw error
   }
 };
-//Hàm activeUser dùng 1 GET request
-//VD:
-//http://Nguyens-iMac:3000/users/activateUser?secretKey=$2b$10$U4iDuK4aJ0.QSvVfRy8g/uvmSCUB0B8KfX75uUj8qr3xudHXcDG7y&email=nodejst9@gmail.com
 const activateUser = async (email, secretKey) => {
   try {
       let foundUser = await User.findOne({email, password: secretKey})
@@ -36,7 +33,7 @@ const activateUser = async (email, secretKey) => {
           foundUser.active = 1;
           await foundUser.save();            
       } else {
-          throw "User đã kích hoạt";//foundUser.active = 1
+          throw "User đã kích hoạt";
       }
   } catch(error) {        
       throw error;       
@@ -79,7 +76,6 @@ module.exports.create=  async function(req, res){
             console.log(3);
             console.log(err);
               res.render('dangky/index', {
-                  
                   lopmoi: req.body
               });
           }
@@ -101,3 +97,5 @@ module.exports.create=  async function(req, res){
   });
   }
 };  
+
+// module.exports.

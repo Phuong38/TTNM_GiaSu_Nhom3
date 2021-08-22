@@ -55,8 +55,12 @@ header#header
       .container.main-menu
         .row.align-items-center.justify-content-between.d-flex
           #logo
-            a(href='/')
-              img(src='/img/logo1.png' alt='' title='')
+            if user 
+              a(href='/gia-su')
+                img(src='/img/logo1.png' alt='' title='')
+            else 
+              a(href='/') 
+                img(src='/img/logo1.png' alt='' title='')
           nav#nav-menu-container
             ul.nav-menu
               li
@@ -80,9 +84,9 @@ main(role='main')
               a(href='/gia-su')
                 i.fa.fa-home
             li.breadcrumb-item
-              a(href='/cap-nhat-thong-tin') T&agrave;i kho&#x1EA3;n c&#x1EE7;a t&ocirc;i
+              a(href='/cap-nhat-thong-tin') Tài khoản của tôi
             li.breadcrumb-item.active(aria-current='page') 
-        h3 V&#x1ECB; tr&iacute; gia s&#x1B0;
+        h3 Vị trí gia sư
         
         form(action='/cap-nhat-thong-tin/vi-tri-gia-su', method='POST', novalidate='')
           input(type='hidden',   name='id',  value= vitrigiasu ? vitrigiasu._id : '')
@@ -95,20 +99,20 @@ main(role='main')
             if vitrigiasu
               if vitrigiasu.vitri ==  "Sinh Viên"
                 .form-check.form-check-radio
-                  span Sinh Vi&ecirc;n
+                  span Sinh viên
                   input(type='radio', name='tutor_kind', value='Sinh Viên', checked='checked',  id ='sv')
                   span.checkmark
                 .form-check.form-check-radio
-                  span Gi&aacute;o Vi&ecirc;n
+                  span Giáo viên
                   input(type='radio', name='tutor_kind', value='Giáo Viên' , id='gv')
                   span.checkmark
             else
               .form-check.form-check-radio
-                span Sinh Vi&ecirc;n
+                span Sinh viên
                 input(type='radio', name='tutor_kind', value='Sinh Viên',   id ='sv')
                 span.checkmark
               .form-check.form-check-radio
-                span Gi&aacute;o Vi&ecirc;n
+                span Giáo viên
                 input(type='radio', name='tutor_kind', value='Giáo Viên' , checked='checked', id='gv')
                 span.checkmark
             
@@ -123,7 +127,7 @@ main(role='main')
           textarea.mt-4.form-control(name='experience', rows='8', placeholder='Nhập kinh nghiệm gia sư', id="idkinhnghiem")= kinhnghiem
           .mt-4.text-right
             a.btn.btn-secondary.mr-4.btn-cancel(href='/cap-nhat-thong-tin/the-can-cuoc') Quay lại
-            a.btn.btn-primary(href='/cap-nhat-thong-tin/lop-da-nhan') Xác nhận 
+            input.btn.btn-primary(type='submit', value='Tiếp theo')
       .col-lg-3.order-lg-first.mt-5.mt-lg-0
         .mb-2.h5
           a(href='/cap-nhat-thong-tin') Hồ sơ gia sư

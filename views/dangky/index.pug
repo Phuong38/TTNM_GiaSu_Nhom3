@@ -18,19 +18,19 @@ head
   //
     CSS
     =============================================
-  link(rel='stylesheet' href='css/linearicons.css')
-  link(rel='stylesheet' href='css/font-awesome.min.css')
-  link(rel='stylesheet' href='css/bootstrap.css')
-  link(rel='stylesheet' href='css/magnific-popup.css')
-  link(rel='stylesheet' href='css/nice-select.css')
-  link(rel='stylesheet' href='css/animate.min.css')
-  link(rel='stylesheet' href='css/owl.carousel.css')
-  link(rel='stylesheet' href='css/jquery-ui.css')
-  link(rel='stylesheet' href='css/main.css')
-  link(rel='stylesheet' href='css/util.css')
-  link(rel='stylesheet' href='css/main_register.css')
-  link(rel='stylesheet' href='css/login.css')
-  script(language='javascript' src='js/checkvalidate2.js')
+  link(rel='stylesheet', href='css/linearicons.css')
+  link(rel='stylesheet', href='css/font-awesome.min.css')
+  link(rel='stylesheet', href='css/bootstrap.css')
+  link(rel='stylesheet', href='css/magnific-popup.css')
+  link(rel='stylesheet', href='css/nice-select.css')
+  link(rel='stylesheet', href='css/animate.min.css')
+  link(rel='stylesheet', href='css/owl.carousel.css')
+  link(rel='stylesheet', href='css/jquery-ui.css')
+  link(rel='stylesheet', href='css/main.css')
+  link(rel='stylesheet', href='css/util.css')
+  link(rel='stylesheet', href='css/main_register.css')
+  link(rel='stylesheet', href='css/login.css')
+  script(language='javascript', src='js/checkvalidate2.js')
  
 header#header
   .header-top
@@ -54,10 +54,7 @@ header#header
                 button.btn.btn-primary.btn-sm.text-uppercase(type='button')  Đăng xuất
           else
               a(href='/login')
-                button.btn.btn-light.btn-sm.text-uppercase(type='button') Đăng nhập 
-                  //- span &nbsp; 
-                  //- span &nbsp;
-                  //- span &nbsp;    
+                button.btn.btn-light.btn-sm.text-uppercase(type='button') Đăng nhập    
               a(href='/dang-ky-lam-gia-su')
                 button.btn.btn-primary.btn-sm.text-uppercase(type='button')  Đăng ký
   .row.m
@@ -69,70 +66,58 @@ header#header
         nav#nav-menu-container
           ul.nav-menu
             li
-              a(href='/') Trang ch&#x1EE7;
+              a(href='/') Trang chủ
             li
-              a(href='/gioithieu') Gi&#x1EDB;i thi&#x1EC7;u
+              a(href='/gioithieu') Giới thiệu
             li
-              a(href='/danhsachlopmoi') Danh s&aacute;ch c&aacute;c l&#x1EDB;p m&#x1EDB;i
-            // <li><a href="events.html">Events</a></li>
+              a(href='/danhsachlopmoi') Danh sách lớp mới
             li
-              a(href='/blog-khach-hang') Blog kh&aacute;ch h&agrave;ng
+              a(href='/blog-khach-hang') Blog khách hàng
             li.menu-has-children
-              a(href='/blog-gia-su') Blog gia s&#x1B0;
+              a(href='/blog-gia-su') Blog gia sư
               
             li
-              a(href='/contact') Li&ecirc;n h&#x1EC7;
+              a(href='/contact') Liên hệ
         // #nav-menu-container
 // #header
-// start banner Area
-// End banner Area
-// Start feature Area
-// End feature Area
 // Start popular-course Area
 section.section-gap
   .container-contact100
     .wrap-contact100
-      form.contact100-form.validate-form(name='frmdangkylamgiasu' action='/dang-ky-lam-gia-su' method='POST')
+      form(name='frmdangkylamgiasu' action='/dang-ky-lam-gia-su' onsubmit ='return validateForm()' method='POST' required )
         span.contact100-form-title
-          | &Dstrok;&abreve;ng k&yacute; l&agrave;m gia s&#x1B0;
-        label.label-input100(for='hoten') H&#x1ECD; t&ecirc;n:
+          | Đăng ký làm gia sư
+        label.label-input100(for='hoten') HỌ VÀ TÊN:
         .wrap-input100.validate-input
-          input#email.input100(type='text' name='name' placeholder='ví dụ: Ngô Thanh Tin' )
+          input#name.input100(type='text' name='name' onkeyup='checkName(this.form)' placeholder='ví dụ: Phạm Trình Tin' required)
+          #viewValidName
           span.focus-input100
-        label.label-input100(for='email') &Dstrok;&#x1ECB;a ch&#x1EC9; email:
+        label.label-input100(for='email') ĐỊA CHỈ EMAIL:
         .wrap-input100.validate-input
-          input#email.input100(type='text' name='email' placeholder='ví dụ: example@email.com')
+          input#email.input100(type='email' name='email' onkeyup='checkEmail(this.form)' placeholder='ví dụ: example@email.com' required)
+          #viewValidEmail
           span.focus-input100
-        label.label-input100(for='password') M&#x1EAD;t kh&#x1EA9;u:
+        label.label-input100(for='password') MẬT KHẨU:
         .wrap-input100
-          input#phone.input100(type='password' name='password' onkeyup='checkPass(this.form)')
+          input#password.input100(type='password' name='password' onkeyup='checkPass(this.form)' required)
+          //- #viewValidPass
           span.focus-input100
-        label.label-input100(for='password1') Nh&#x1EAD;p l&#x1EA1;i m&#x1EAD;t kh&#x1EA9;u:
+        label.label-input100(for='password1') NHẬP LẠI MẬT KHẨU:
         .wrap-input100
-          input#phone.input100(type='password' name='password1' onkeyup='checkPass(this.form)' placeholder='')
+          input#password1.input100(type='password' name='password1' onkeyup='checkPass(this.form)' required)
           #viewValidPass
           span.focus-input100
         .container-contact100-form-btn
-          button.contact100-form-btn
-            span
-              | &Dstrok;&abreve;ng k&yacute;
-              i.zmdi.zmdi-arrow-right.m-l-8
+          //- button.contact100-form-btn(type='submit', onclick="return alert('Bạn đã đăng ký tài khoản thành công.Kiểm tra email để kích hoạt tài khoản');" )
+          //-     span
+          //-       | Đăng ký
+          //-       i.zmdi.zmdi-arrow-right.m-l-8            
+          a(href='login', onclick="return alert('Bạn đã đăng ký tài khoản thành công. Kiểm tra email để kích hoạt tài khoản');" ,data-toggle='tooltip', data-placement='top', title='Delete')
+            button.contact100-form-btn
+              span
+                | Đăng ký
+                i.zmdi.zmdi-arrow-right.m-l-8
 // End popular-course Area
-// Start cta-two Area
-//
-  <section class="cta-two-area">
-  <div class="container">
-  <div class="row">
-  <div class="col-lg-8 cta-left">
-  <h1>Not Yet Satisfied with our Trend?</h1>
-  </div>
-  <div class="col-lg-4 cta-right">
-  <a class="primary-btn wh" href="#">view our blog</a>
-  </div>
-  </div>
-  </div>
-  </section>
-// End cta-two Area
 // start footer Area
 include ../layouts/footer.pug
 // End footer Area

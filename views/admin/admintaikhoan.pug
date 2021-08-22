@@ -221,15 +221,14 @@ head
                       td= user.name
                       td.desc= user.email
                       td= user.password
-                      if user.gioitinh
+                      if user.active
                         td 
-                          span.status--denied No
+                          span.status--process Yes  
                       else
                         td
-                          span.status--process Yes
+                          span.status--denied No
                       if user.id_Role == 0
-                        td Gia Sư
-                          
+                        td User
                       else
                         td Admin
                           
