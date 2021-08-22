@@ -84,26 +84,26 @@ header#header
 section.section-gap
   .container-contact100
     .wrap-contact100
-      form.contact100-form.validate-form(name='frmdangkylamgiasu' action='/dang-ky-lam-gia-su' method='POST')
+      form(name='frmdangkylamgiasu' action='/dang-ky-lam-gia-su' onsubmit ='return validateForm()' method='POST' required )
         span.contact100-form-title
           | Đăng ký làm gia sư
         label.label-input100(for='hoten') HỌ VÀ TÊN:
         .wrap-input100.validate-input
-          input#email.input100(type='text' name='name' onkeyup='checkName(this.form)' placeholder='ví dụ: Phạm Trình Tin' )
+          input#email.input100(type='text' name='name' onkeyup='checkName(this.form)' placeholder='ví dụ: Phạm Trình Tin' required)
           #viewValidName
           span.focus-input100
         label.label-input100(for='email') ĐỊA CHỈ EMAIL:
         .wrap-input100.validate-input
-          input#email.input100(type='text' name='emaill' onkeyup='checkEmail(this.form)' placeholder='ví dụ: example@email.com')
+          input#email.input100(type='email' name='emaill' onkeyup='checkEmail(this.form)' placeholder='ví dụ: example@email.com' required)
           #viewValidEmail
           span.focus-input100
         label.label-input100(for='password') MẬT KHẨU:
         .wrap-input100
-          input#phone.input100(type='password' name='password' onkeyup='checkPass(this.form)')
+          input#phone.input100(type='password' name='password' onkeyup='checkPass(this.form)' required)
           span.focus-input100
         label.label-input100(for='password1') NHẬP LẠI MẬT KHẨU:
         .wrap-input100
-          input#phone.input100(type='password' name='password1' onkeyup='checkPass(this.form)' placeholder='')
+          input#phone.input100(type='password' name='password1' onkeyup='checkPass(this.form)' placeholder='' required)
           #viewValidPass
           span.focus-input100
         .container-contact100-form-btn
@@ -130,3 +130,7 @@ script(src='js/owl.carousel.min.js')
 script(src='js/mail-script.js')
 script(src='js/main.js')
 
+//- script. 
+//-     function validateForm(fn){
+//-       var name = fn.value
+//-     }
