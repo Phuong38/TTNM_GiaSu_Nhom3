@@ -108,10 +108,15 @@ section.section-gap
           #viewValidPass
           span.focus-input100
         .container-contact100-form-btn
-          button.contact100-form-btn
-            span
-              | Đăng ký
-              i.zmdi.zmdi-arrow-right.m-l-8
+          //- button.contact100-form-btn(type='submit', onclick="return alert('Bạn đã đăng ký tài khoản thành công.Kiểm tra email để kích hoạt tài khoản');" )
+          //-     span
+          //-       | Đăng ký
+          //-       i.zmdi.zmdi-arrow-right.m-l-8            
+          a(href='login', onclick="return alert('Bạn đã đăng ký tài khoản thành công. Kiểm tra email để kích hoạt tài khoản');" ,data-toggle='tooltip', data-placement='top', title='Delete')
+            button.contact100-form-btn
+              span
+                | Đăng ký
+                i.zmdi.zmdi-arrow-right.m-l-8
 // End popular-course Area
 // start footer Area
 include ../layouts/footer.pug

@@ -147,10 +147,15 @@ section.event-details-area.section-gap
           span &nbsp;
           span &nbsp;
           = "Học lực: "+ lopmoi.hocluc
-        if lopmoi.tinhtrang
-          a(href='/dangkynhanlop/'+ lopmoi._id, onclick="return confirm('Bạn có chắc chắn nhận lớp này không');" ,data-toggle='tooltip', data-placement='top', title='Delete')
-            button.btn.btn-primary(type='button') &Dstrok;&abreve;ng k&yacute; nh&#x1EAD;n l&#x1EDB;p
+        if user
+          if lopmoi.tinhtrang
+            a(href='/dangkynhanlop/'+ lopmoi._id, onclick="return confirm('Bạn có chắc chắn nhận lớp này không');" ,data-toggle='tooltip', data-placement='top', title='Delete')
+              button.btn.btn-primary(type='button') Đăng ký nhận lớp
+          else
+              button.btn.btn-primary(type='button', disabled) Lớp đã được nhận
         else
+          a(href='/login',data-toggle='tooltip', data-placement='top', title='Delete')
+            button.btn.btn-primary(type='button') Đăng nhập để nhận lớp
           
       .col-lg-6.col-md-6.d-flex
         -var bien= lopmoi.diachi
