@@ -1,18 +1,10 @@
-const mongoose = require('mongoose');
 const { sendEmail } = require('../helpers/gmailnhaplop');
-const GiaSu = mongoose.model('GiaSu');
-const LopHoc = mongoose.model('LopHoc');
-const TheCanCuoc = mongoose.model('TheCanCuoc');
-const ViTriGiaSu = mongoose.model('ViTriGiaSu');
+var service = require('../service/dangkynhanlop.service');
+
 
 module.exports.index = async function (req, res) {
-  const id = req.params.id;
-  var lophoc = await LopHoc.findOne({ _id: id }).exec();
-  var gs = await GiaSu.findOne({ id_User: req.signedCookies.userId }).exec();
-  console.log("Giasu");
-  console.log(gs);
-  var cmt = await TheCanCuoc.findOne({ _id: gs.id_TheCanCuoc }).exec();
-  var vt = await ViTriGiaSu.findOne({ _id: gs.id_ViTri }).exec();
+  var lophoc, gs, cmt, vt;
+ lophoc, gs, cmt, vt = await service.getThongTinGiaSu(req);
   var gioitinh = 'Nam';
   if (!gs.gioitinh) {
     gioitinh = 'Nữ';
@@ -67,16 +59,6 @@ module.exports.index = async function (req, res) {
   `;
   await sendEmail(gs.email, output1);
   await sendEmail(lophoc.diachiemail, output);
-  await LopHoc.updateOne({ _id: id },
-    {
-      $set: {
-        tinhtrang: false,
-        giasu: req.signedCookies.userId
-      }
-    },
-    { new: true }).exec();
-  
-
+  await service.update(req);
   res.render('dangkynhanlop/index');
-
 };

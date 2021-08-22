@@ -1,3 +1,59 @@
+// const {sendEmail} = require('../helpers/utility');
+// var service = require('../service/dangkytaikhoan.service');
+
+
+// module.exports.index = function(req, res) {
+//     res.render('dangky/index');
+// };
+
+// module.exports.active =  async function(req, res){
+//   let {email, secretKey} = req.query;
+//   try {
+// 		await service.active(email, secretKey)
+// 		res.redirect('/gia-su');
+// 	} catch(error) {
+// 		res.send(`<h1 style="color:Red;">Không kích hoạt được User, lỗi: ${error}</h1>`)
+// 	}
+      
+
+// };
+
+// module.exports.create=  async function(req, res){
+//   var err = service.create(req);
+//   console.log(1);
+//   if (!err){
+//     console.log(req.body.hoten);
+//     sendEmail( req.body.email, req.body.password);
+//       res.redirect('/gia-su');
+//   }
+//   else {
+//     console.log(2);
+//       if (err.name == 'ValidationError') {
+//         console.log(3);
+//         console.log(err);
+//           res.render('dangky/index', {
+              
+//               lopmoi: req.body
+//           });
+//       }
+//       else{
+//         console.log(1);
+//         console.log('Error during record insertion : ' + err);
+//       }
+          
+//   }
+//   try {
+//     let {name, email, password} = req.body;
+//     await service.insertuser(name, email, password);
+//     res.redirect('/gia-su');
+//   } catch(error) {
+//     res.render('dangky/index', {
+                  
+//       lopmoi: req.body
+//   });
+//   }
+// };  
+
 const mongoose = require('mongoose');
 const User = mongoose.model('User');
 const bcrypt = require('bcrypt');
