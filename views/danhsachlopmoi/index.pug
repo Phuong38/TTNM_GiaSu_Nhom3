@@ -15,13 +15,13 @@ section.popular-courses-area.section-gap.courses-page
     .row.d-flex.justify-content-center
       .menu-content.pb-70.col-lg-8
         .title.text-center
-          h1.mb-10 Danh s&aacute;ch l&#x1EDB;p m&#x1EDB;i
+          h1.mb-10 Danh sách lớp mới
           .col-md-12
             .input-group.md-form.form-sm.form-2.pl-0
               input.form-control.my-0.py-1.amber-border(type='text', placeholder='Tìm kiếm', aria-label='Search')
               .input-group-append
                 span#basic-text1.input-group-text.amber.lighten-3
-                  i.fa.fa-search.text-grey(aria-hidden='true') T&igrave;m ki&#x1EBF;m
+                  i.fa.fa-search.text-grey(aria-hidden='true') Tìm kiếm
     .row
       
       each lopmoi in lopmois
@@ -52,8 +52,8 @@ section.popular-courses-area.section-gap.courses-page
                     i.fa.fa-address-book
                     span &nbsp;
                     = yeucau
-                  a.button.btn.btn-primary.float-right(href='/danhsachlopmoi/' + lopmoi._id) Xem chi ti&#x1EBF;t
+                  a.button.btn.btn-primary.float-right(href='/danhsachlopmoi/' + lopmoi._id) Xem chi tiết
       
-    a.primary-btn.text-uppercase.mx-auto(href='#') Xem th&ecirc;m
+    a.primary-btn.text-uppercase.mx-auto(href='#') Xem thêm
 // End popular-courses Area
 include ../layouts/footer.pug

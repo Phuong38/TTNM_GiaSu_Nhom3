@@ -18,7 +18,7 @@ head
   .login-form
     .main-div
       .panel
-        h2 &Dstrok;&abreve;ng nh&#x1EAD;p v&agrave;o t&agrave;i kho&#x1EA3;n
+        h2 Đăng nhập vào tài khoản
         p
       form#Login(name='frmlogin' action='/login' method='POST')
         .form-group
@@ -26,7 +26,7 @@ head
         .form-group
           input#inputPassword.form-control(type='password' name= 'password' placeholder='Nhập mật khẩu' value=values ? values.password : "")
         .forgot
-          a(href='reset.html') Qu&ecirc;n m&#x1EAD;t kh&#x1EA9;u
-        button.btn.btn-primary(type='submit') &Dstrok;&abreve;ng nh&#x1EAD;p
-        p.botto-text B&#x1EA1;n l&agrave; th&agrave;nh vi&ecirc;n m&#x1EDB;i.
-        a(href='/dang-ky-lam-gia-su') &Dstrok;&abreve;ng k&yacute; l&agrave;m gia s&#x1B0;
+          a(href='reset.html') Quên mật khẩu
+        button.btn.btn-primary(type='submit') Đăng nhập
+        p.botto-text Bạn là thành viên mới
+        a(href='/dang-ky-lam-gia-su') Đăng ký làm gia sư

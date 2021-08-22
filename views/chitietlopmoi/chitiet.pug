@@ -1,4 +1,3 @@
-doctype html
 include ../layouts/header.pug
 // start banner Area
 section#home.banner-area.relative.about-banner
@@ -7,11 +6,7 @@ section#home.banner-area.relative.about-banner
     .row.d-flex.align-items-center.justify-content-center
       .about-content.col-lg-12
         h1.text-white
-          | Xem chi ti&#x1EBF;t l&#x1EDB;p
-        p.text-white.link-nav
-          a(href='/') Trang ch&#x1EE7; 
-          span.lnr.lnr-arrow-right
-          a(href='/danhsachlopmoi')  Xem chi ti&#x1EBF;t l&#x1EDB;p
+          | Xem chi tiết lớp mới
 // End banner Area
 // Start event-details Area
 
@@ -20,7 +15,10 @@ section.event-details-area.section-gap
     .row
       .col-lg-6.event-details-left.mybg
         h1=  'Chi tiết lớp mới: GS0' + lopmoi._id
-        h3 T&igrave;nh tr&#x1EA1;ng: &Dstrok;ang c&ograve;n
+          if lopmoi.tinhtrang
+            h3 Tình trạng: Đang còn
+          else
+            h3 Tình trạng: Đã được nhận
         br
         p.p-icon.mb-2.font-weight-bold
           i.fa.fa-book
@@ -73,8 +71,11 @@ section.event-details-area.section-gap
           span &nbsp;
           span &nbsp;
           = "Học lực: "+ lopmoi.hocluc
-        a(href='/dangkynhanlop/'+ lopmoi._id, onclick="return confirm('Bạn có chắc chắn nhận lớp này không');" ,data-toggle='tooltip', data-placement='top', title='Delete')
-          button.btn.btn-primary(type='button') &Dstrok;&abreve;ng k&yacute; nh&#x1EAD;n l&#x1EDB;p
+        if lopmoi.tinhtrang
+          a(href='/dangkynhanlop/'+ lopmoi._id, onclick="return confirm('Bạn có chắc chắn nhận lớp này không');" ,data-toggle='tooltip', data-placement='top', title='Delete')
+            button.btn.btn-primary(type='button') &Dstrok;&abreve;ng k&yacute; nh&#x1EAD;n l&#x1EDB;p
+        else
+          
       .col-lg-6.col-md-6.d-flex
         -var bien= lopmoi.diachi
         -var dc= "https://www.google.com/maps/embed/v1/place?key=AIzaSyBwrnBtViHL8Kw22f4EGRZQUadOqqRkaUU&q=+"+bien+"&zoom=15"
