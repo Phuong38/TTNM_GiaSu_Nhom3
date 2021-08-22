@@ -107,11 +107,12 @@ section.section-gap
           input#password1.input100(type='password' name='password1' onkeyup='checkPass(this.form)' required)
           #viewValidPass
           span.focus-input100
-        .container-contact100-form-btn
-          button.contact100-form-btn
-            span
-              | Đăng ký
-              i.zmdi.zmdi-arrow-right.m-l-8
+        .container-contact100-form-btn            
+          a(href='/login', onclick="return alert('Bạn đã đăng ký tài khoản thành công\nKiểm tra email để kích hoạt tài khoản');" ,data-toggle='tooltip', data-placement='top', title='Delete')
+            button.contact100-form-btn
+              span
+                | Đăng ký
+                i.zmdi.zmdi-arrow-right.m-l-8
 // End popular-course Area
 // start footer Area
 include ../layouts/footer.pug

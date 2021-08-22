@@ -36,7 +36,7 @@ module.exports.create=  function(req, res){
       console.log(1);
       if (!err){
         console.log(req.body.tenphuhuynh);
-          res.redirect('/');
+          res.redirect('/danhsachlopmoi/'+lophoc.id);
       }
       else {
         console.log(2);
