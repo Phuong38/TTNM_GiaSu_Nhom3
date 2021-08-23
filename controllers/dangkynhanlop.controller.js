@@ -2,11 +2,10 @@ const { sendEmail } = require('../helpers/gmailnhaplop');
 const service = require('../service/dangkynhanlop.service');
 
 module.exports.index = async function (req, res) {
-//  let {lophoc, gs, cmt, vt} = await service.getThongTinGiaSu(req);
-  var lophoc = await service.getLopHoc(req.params.id);
-  var gs =  service.getGiaSu(req.signedCookies.userId);
-  var cmt = await service.getCMT(gs.id_TheCanCuoc);
-  var vt = await service.getVitri(gs.id_ViTri);
+  var result = await service.index(req);
+  var lophoc = result.lophoc;
+  var gs = result.gs;
+  var cmt = result.cmt;
   var gioitinh = 'Nam';
   if (!gs.gioitinh) {
     gioitinh = 'Nữ';
@@ -59,16 +58,8 @@ module.exports.index = async function (req, res) {
   `;
   await sendEmail(gs.email, output1);
   await sendEmail(lophoc.diachiemail, output);
-  // await LopHoc.updateOne({ _id: id },
-  //   {
-  //     $set: {
-  //       tinhtrang: false,
-  //       giasu: req.signedCookies.userId
-  //     }
-  //   },
-  //   { new: true }).exec();
-  
-  await service.update(req)
+  await service.update(req);
+
   res.render('dangkynhanlop/index');
 
 };

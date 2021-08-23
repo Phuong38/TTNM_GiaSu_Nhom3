@@ -1,4 +1,8 @@
+const mongoose = require('mongoose');
+const LopHoc = mongoose.model('LopHoc');
+const MonHoc = mongoose.model('MonHoc');
 const service = require('../service/dangkythuegiasu.service');
+
 
 module.exports.index = async function(req, res) {
   var monhocs = await service.index();
@@ -12,27 +16,21 @@ module.exports.create=  function(req, res){
   console.log(1);
   if (!err){
     console.log(req.body.tenphuhuynh);
-      res.redirect('/');
+      res.redirect('/danhsachlopmoi');
   }
-  console.log(option);
-  lophoc.thoigian= option;
-  lophoc.buoicothehoc= req.body.buoicothehoc;
-  lophoc.yeucaugiasu= req.body.yeucaugiasu;
-  lophoc.ghichu= req.body.ghichu;
-  lophoc.gioitinh= req.body.gioitinh;
-  lophoc.hocluc= req.body.hocluc;
-  console.log(lophoc);
-  lophoc.save((err, doc) => {
-      console.log(1);
-      if (!err){
-        console.log(req.body.tenphuhuynh);
-          res.redirect('/danhsachlopmoi/'+lophoc.id);
+  else {
+    console.log(2);
+      if (err.name == 'ValidationError') {
+        console.log(3);
+        console.log(err);
+          res.render('dangkythuegiasu/index', {
+              lopmoi: req.body
+          });
       }
       else{
         console.log(1);
         console.log('Error during record insertion : ' + err);
       }
           
-  });
-}
-
+  }
+};

@@ -1,7 +1,9 @@
-const service = require('../service/dangnhap.service');
+const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const secretString = "lethanhphuong";
+const service = require('../service/dangnhap.service');
+
 module.exports.index = function (req, res) {
     res.render('login/index');
 };
@@ -10,7 +12,7 @@ module.exports.check = async function (req, res, next) {
     let { email, password } = req.body;
     try {
 
-        let foundUser = await service.getUser(email.trim());
+        let foundUser = await service.getUser(email);
         console.log(2);
         if (!foundUser) {
             res.render('login/index', {

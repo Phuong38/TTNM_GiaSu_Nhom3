@@ -1,4 +1,3 @@
-const { read } = require('fs');
 const mongoose = require('mongoose');
 const GiaSu = mongoose.model('GiaSu');
 const LopHoc = mongoose.model('LopHoc');
@@ -6,43 +5,56 @@ const ViTriGiaSu = mongoose.model('ViTriGiaSu');
 const TheCanCuoc = mongoose.model('TheCanCuoc');
 
 module.exports.index = async function (req) {
-    
     var count = await LopHoc.find({ giasu: req.signedCookies.userId }).count().exec();
     console.log(count);
     var giasu = await GiaSu.findOne({
     id_User: req.signedCookies.userId
     }).exec();
+    console.log('index gia su service');
     console.log(giasu);
-    return count, giasu;
+    return {
+        count: count,
+        giasu: giasu
+    };
 }
 
 module.exports.lopdanhan = async function(req) {
     var lophocs = await LopHoc.find({ giasu: req.signedCookies.userId }).exec();
     var count = await LopHoc.find({ giasu: req.signedCookies.userId }).count().exec();
-    return lophocs, count;
+    return{
+        lophocs: lophocs,
+        count: count
+    };
 }
 
 module.exports.thecancuoc = async function(userId) {
     var count = await LopHoc.find({ giasu: userId }).count().exec();
     var giasu =  GiaSu.findOne({ id_User: userId }).exec();
+    var rTcc;
     if(giasu.id_TheCanCuoc){
         const tcc = await TheCanCuoc.findOne({_id: giasu.id_TheCanCuoc}).exec();
         console.log("HIHI");
         console.log(tcc);
-        return tcc, count;
-    }else{
-        return count;
+        rTcc = tcc
     }
+    return{
+        count: count,
+        giasu: giasu,
+        tcc: rTcc
+    };
 }
 
 module.exports.vitrigiasu = async function(userId) {
     var count = await LopHoc.find({ giasu: userId }).count().exec();
-    var giasu =  GiaSu.findOne({ id_User: userId }).exec();
+    var giasu = await GiaSu.findOne({ id_User: userId }).exec();
     console.log(giasu);
     const vt = await ViTriGiaSu.findOne({_id: giasu.id_ViTri}).exec();
-    console.log("VT");
+    console.log("VT service");
     console.log(vt);
-    return count, vt;
+    return{
+        count: count,
+        vt: vt
+    };
 }
 
 module.exports.postthecancuoc = async function(req) {
@@ -53,6 +65,7 @@ module.exports.postthecancuoc = async function(req) {
     thecancuoc.ngaycap = ngaycap;
     thecancuoc.hokhauthuongchu = req.body.hokhauthuongchu;
     var gs =  GiaSu.findOne({ id_User: req.signedCookies.userId }).exec();
+    var rErr;
     if (!gs.id_TheCanCuoc){
         await thecancuoc.save((err, doc) => {
             if (!err){
@@ -63,11 +76,8 @@ module.exports.postthecancuoc = async function(req) {
                         }
                     },
                     {new: true }).exec();
-                return gs.id_TheCanCuoc, err;
             }
-            else{
-                return gs.id_TheCanCuoc, err;
-            }
+            rErr = err;
         });
     }
     else{
@@ -81,8 +91,12 @@ module.exports.postthecancuoc = async function(req) {
               }
             },
             { new: true }).exec();
-        return gs.id_TheCanCuoc;
     }
+
+    return{
+        id_TheCanCuoc: gs.id_TheCanCuoc,
+        err: rErr
+    };
 }
 
 module.exports.postvitrigiasu = async function(req) {
@@ -91,6 +105,7 @@ module.exports.postvitrigiasu = async function(req) {
     vitrigiasu.thanhtich= req.body.achieved;
     vitrigiasu.kinhnghiem= req.body.experience;
     var gs =  GiaSu.findOne({ id_User: req.signedCookies.userId }).exec();
+    var rErr;
     if (!gs.id_ViTri){
         await vitrigiasu.save((err, docs) => {
             if (!err) {
@@ -101,11 +116,8 @@ module.exports.postvitrigiasu = async function(req) {
                   }
                 },
                 { new: true }).exec();
-              return gs.id_ViTri, err;
             }
-            else {
-              return gs.id_ViTri, err;
-            }
+            rErr = err;
           });
     }
     else{
@@ -119,8 +131,11 @@ module.exports.postvitrigiasu = async function(req) {
               }
             },
             { new: true }).exec();
-        return gs.id_ViTri;
     }
+    return{
+        id_ViTri: gs.id_ViTri,
+        err: rErr
+    };
 }
 
 module.exports.capnhatthongtin = async function (req) {
@@ -141,9 +156,10 @@ module.exports.capnhatthongtin = async function (req) {
     var gs = await GiaSu.findOne({
     id_User: req.signedCookies.userId
     }).exec();
+    var rErr;
     if (!gs){
         await giasu.save((err, docs) => {
-           return false, err;
+           rErr = err;
         });
     }
     else{
@@ -162,6 +178,9 @@ module.exports.capnhatthongtin = async function (req) {
               }
             },
             { new: true }).exec();
-        return true;
     }
+    return{
+        gs: gs,
+        err: rErr
+    };
 }

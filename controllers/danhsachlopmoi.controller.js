@@ -1,3 +1,4 @@
+var LopHoc = require('../models/lophoc.model');
 const service = require('../service/danhsachlopmoi.service');
 
 module.exports.index =  async function(req, res) {

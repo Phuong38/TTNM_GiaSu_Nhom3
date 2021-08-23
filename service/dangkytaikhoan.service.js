@@ -1,6 +1,11 @@
 const mongoose = require('mongoose');
 const User = mongoose.model('User');
 const bcrypt = require('bcrypt');
+const {sendEmail} = require('../helpers/utility');
+
+module.exports.getUser = async function(email, secretKey) {
+    return await User.findOne({email, password: secretKey}).exec();
+}
 
 const insertUser = async (name, email, password) => {
     try{
@@ -11,6 +16,7 @@ const insertUser = async (name, email, password) => {
         newUser.email = email;
         newUser.password = encryptedPassword;   
         await newUser.save();
+        await sendEmail(email, encryptedPassword);
     } catch (error) {
         if (error.code === 11000) {
             throw "Tên hoặc email đã tồn tại";
@@ -18,18 +24,18 @@ const insertUser = async (name, email, password) => {
     }
 }
 
-const activeUser = async (email, secretKey) => {
+const activateUser = async (email, secretKey) => {
     try {
         let foundUser = await User.findOne({email, password: secretKey})
         .exec();
         if (!foundUser) {
-        throw "Không tìm thấy User để kích hoạt";
+            throw "Không tìm thấy User để kích hoạt";
         }    
         if (foundUser.active === 0) {
-        foundUser.active = 1;
-        await foundUser.save();            
+            foundUser.active = 1;
+            await foundUser.save();            
         } else {
-        throw "User đã kích hoạt";//foundUser.active = 1
+            throw "User đã kích hoạt";//foundUser.active = 1
         }
     } catch (error) {
         throw error;
@@ -37,17 +43,20 @@ const activeUser = async (email, secretKey) => {
 }
 
 module.exports.active = async function(email, secretKey) {
-    await activeUser(email, secretKey);
+    await activateUser(email, secretKey);
 }
 
-module.exports.create = async function(req) {
+module.exports.create =  function(req) {
+    console.log('service: ');
+    console.log(req.body);
     var user = new User();
     const encryptedPassword =  bcrypt.hash(req.body.password, 10);
-    user.name= req.body.hoten;
+    user.name= req.body.name;
     user.email= req.body.email;
     user.password= encryptedPassword;
     // user.id_Role=1;
-    console.log(user);
+    console.log('service');
+    console.log(user.name);
     user.save((err, doc) => {
         return err;
     });

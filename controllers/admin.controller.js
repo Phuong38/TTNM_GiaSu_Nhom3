@@ -1,15 +1,3 @@
-const mongoose = require('mongoose');
-const bcrypt = require('bcrypt');
-const Excel = require('exceljs');
-const fs = require("fs")
-const path = require("path")
-var XlsxTemplate = require('xlsx-template');
-const LopHoc = mongoose.model('LopHoc');
-const GiaSu = mongoose.model('GiaSu');
-const User = mongoose.model('User');
-const MonHoc = mongoose.model('MonHoc');
-const TheCanCuoc = mongoose.model('TheCanCuoc');
-const ViTriGiaSu = mongoose.model('ViTriGiaSu');
 const service = require('../service/admin.service');
 // get quản lý lớp học
 module.exports.index = async function (req, res) {
@@ -56,53 +44,6 @@ module.exports.indexLopMoiCreate = async function (req, res) {
 };
 // Post thêm phiêu đăng ký thuê gia sư và sửa phiếu đăng ký thuê gia sư
 module.exports.createLopMoi = async function (req, res) {
-  // var lophoc = new LopHoc();
-  // lophoc.tenphuhuynh = req.body.tenphuhuynh;
-  // lophoc.sdt = req.body.sdt;
-  // lophoc.diachi = req.body.diachi;
-  // lophoc.diachiemail = req.body.diachiemail;
-  // lophoc.sobuoi = req.body.selectpicker;
-  // lophoc.monhoc = req.body.monhoc;
-  // lophoc.lophoc = req.body.lophoc;
-  // var arr = req.body.option.map(item => (Array.isArray(item) && item[1]) || null);
-  // var option = "";
-  // for (let i = 0; i < arr.length; i++) {
-  //   if (arr[i]) {
-  //     option += arr[i] + " ,";
-  //   }
-  // }
-  // console.log(option);
-  // lophoc.thoigian = option;
-  // lophoc.buoicothehoc = req.body.buoicothehoc;
-  // lophoc.yeucaugiasu = req.body.yeucaugiasu;
-  // lophoc.ghichu = req.body.ghichu;
-  // lophoc.gioitinh = req.body.gioitinh;
-  // lophoc.hocluc = req.body.hocluc;
-  // console.log(lophoc);
-
-  // await lophoc.save((err, doc) => {
-  //   console.log(1);
-  //   if (!err) {
-  //     console.log(req.body.tenphuhuynh);
-  //     res.redirect('/admin/lopmois');
-  //   }
-  //   else {
-  //     console.log(2);
-  //     if (err.name == 'ValidationError') {
-  //       console.log(3);
-  //       console.log(err);
-  //       res.render('admin/adminlopmoiCreate', {
-
-  //         lopmoi: req.body
-  //       });
-  //     }
-  //     else {
-  //       console.log(1);
-  //       console.log('Error during record insertion : ' + err);
-  //     }
-
-  //   }
-  // });
   var err = await service.createLopMoi(req);
   if (!err) {
     console.log(req.body.tenphuhuynh);
